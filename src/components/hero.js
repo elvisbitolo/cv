@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Cloud, Code2, Server } from "lucide-react";
+import { ArrowUpRight, Cloud, Code2, Server, MapPin } from "lucide-react";
 import { ButtonLink } from "./button-link";
 
 export function Hero({ profile }) {
@@ -8,8 +8,8 @@ export function Hero({ profile }) {
       <div className="section-shell grid min-h-[calc(100svh-64px)] items-center gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:py-16">
         <div className="max-w-3xl">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-surface/70 px-3 py-2 text-sm font-semibold text-ink/70">
-            <Cloud size={17} />
-            Available for cloud and web projects
+            <MapPin size={17} />
+            Based in Nairobi, Kenya
           </div>
           <h1 className="text-4xl font-black leading-tight text-ink sm:text-5xl lg:text-6xl">
             {profile.name}

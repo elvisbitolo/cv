@@ -1,11 +1,11 @@
 export const profile = {
   name: "Elvis Bitolo Khanyanga",
-  role: "Cloud Practitioner & Software Developer",
-  location: "Kenya",
+  role: "Full Stack Web Developer & Cloud Practitioner",
+  location: "Nairobi, Kenya",
   email: "elvisbitolo11@gmail.com",
   avatar: "/images/elvis.jpg",
   summary:
-    "Cloud practitioner and software developer focused on cloud infrastructure, responsive web applications, automation, and practical developer tooling. I enjoy turning ideas into usable products with clean interfaces and dependable backend services.",
+    "Full stack web developer and cloud practitioner based in Nairobi, Kenya. I build responsive web applications, cloud infrastructure, and automation tools using Next.js, React, Firebase, and AWS.",
   socialLinks: [
     { label: "GitHub", href: "https://github.com/elvisbitolo" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/elvis-bitolo/" },
@@ -13,9 +13,9 @@ export const profile = {
     { label: "YouTube", href: "https://www.youtube.com/@ElvisBitolo-7" }
   ],
   highlights: [
-    "Builds cloud and web projects with a product-minded approach",
-    "Hands-on with AWS, Terraform, Firebase, Python, and Next.js",
-    "Creates documentation, learning content, and developer-focused articles"
+    "Full stack web developer building real-world applications with Next.js and React",
+    "AWS Certified Cloud Practitioner with hands-on Terraform experience",
+    "Available for freelance web development, cloud projects, and collaboration"
   ],
   skills: [
     "Next.js",
@@ -32,20 +32,34 @@ export const profile = {
     "HTML",
     "CSS",
     "Git",
-    "Ubuntu",
-    "Xubuntu",
-    "Figma",
-    "Technical Writing"
+    "Vercel"
+  ],
+  services: [
+    {
+      title: "Web Development",
+      description: "Responsive websites and web applications built with React, Next.js, and modern JavaScript.",
+      icon: "Code2"
+    },
+    {
+      title: "Cloud Infrastructure",
+      description: "AWS setup, deployment pipelines, and infrastructure-as-code with Terraform.",
+      icon: "Cloud"
+    },
+    {
+      title: "Full Stack Apps",
+      description: "End-to-end applications with authentication, databases, and real-time features.",
+      icon: "Server"
+    }
   ],
   experience: [
     {
-      role: "Cloud Practitioner & Software Developer",
+      role: "Full Stack Web Developer & Cloud Practitioner",
       company: "Independent Projects",
       period: "2024 - Present",
       details: [
-        "Building cloud infrastructure and web application projects using AWS, Terraform, Firebase, and modern JavaScript.",
-        "Designing responsive interfaces and full-stack workflows suitable for deployment on Vercel.",
-        "Documenting technical work through GitHub, Medium, and learning content."
+        "Built and deployed Brilliant Angels CBO website — a multi-page Next.js application with contact forms, WhatsApp integration, and Google Search Console optimization.",
+        "Designed responsive interfaces and full-stack workflows deployed on Vercel with Firebase backend.",
+        "Created cloud infrastructure projects using AWS and Terraform for networking and deployment."
       ]
     }
   ],
@@ -62,7 +76,7 @@ export const profile = {
       issuer: "Empower Hope",
       year: "2026",
       summary:
-        "Comprehensive full-stack developer program covering front-end and back-end mastery, software development with AI assistance, and modern web technologies including React, Redux, JavaScript, Python, MongoDB, PostgreSQL, Firestore, and authentication."
+        "Comprehensive full-stack developer program covering React, Redux, JavaScript, Python, MongoDB, PostgreSQL, Firestore, and authentication."
     }
   ],
   education: [
@@ -71,45 +85,36 @@ export const profile = {
       institution: "Empower Hope",
       period: "2026",
       summary:
-        "Intensive training in full-stack development with React, Redux, JavaScript, Python, databases (MongoDB, PostgreSQL, Firestore), authentication, and AI-assisted software development."
+        "Intensive training in full-stack development with React, Redux, JavaScript, Python, databases, authentication, and AI-assisted software development."
     }
   ],
   projects: [
     {
+      title: "Brilliant Angels CBO Website",
+      category: "Full Stack Web App",
+      description:
+        "Multi-page Next.js website for a community-based organisation in Nairobi. Features program pages, donation info, contact forms, WhatsApp integration, SEO optimization with sitemap and Google Search Console.",
+      stack: ["Next.js", "React", "Firebase", "Vercel", "SEO"],
+      github: "",
+      live: "https://brilliant-angel-cbo.vercel.app"
+    },
+    {
       title: "AWS VPC Terraform Project",
       category: "Cloud Infrastructure",
       description:
-        "Infrastructure-as-code project for provisioning AWS networking resources with Terraform, focused on repeatable cloud setup and clean configuration.",
+        "Infrastructure-as-code project for provisioning AWS VPC with public/private subnets, NAT gateway, and networking resources using Terraform.",
       stack: ["AWS", "Terraform", "Cloud Networking"],
       github: "https://github.com/elvisbitolo/aws-vpc-project",
       live: ""
     },
     {
-      title: "Password Generator",
-      category: "Automation",
+      title: "Developer Portfolio",
+      category: "Full Stack Web App",
       description:
-        "Utility project for generating secure passwords and practicing practical Python scripting patterns.",
-      stack: ["Python", "CLI"],
-      github: "https://github.com/elvisbitolo",
-      live: ""
-    },
-    {
-      title: "Guessing Game",
-      category: "Python",
-      description:
-        "Interactive Python game project that demonstrates control flow, user input handling, and beginner-friendly programming logic.",
-      stack: ["Python"],
-      github: "https://github.com/elvisbitolo",
-      live: ""
-    },
-    {
-      title: "Operations Web Page",
-      category: "Frontend",
-      description:
-        "HTML and CSS practice project focused on page structure, content presentation, and responsive web fundamentals.",
-      stack: ["HTML", "CSS"],
-      github: "https://github.com/elvisbitolo",
-      live: ""
+        "Personal portfolio and resume site built with Next.js, featuring dark mode, Firebase backend, contact form, and downloadable CV. Deployed on Vercel.",
+      stack: ["Next.js", "React", "Firebase", "Tailwind CSS"],
+      github: "https://github.com/elvisbitolo/cv",
+      live: "https://elvis-bitolo.vercel.app"
     }
   ]
 };

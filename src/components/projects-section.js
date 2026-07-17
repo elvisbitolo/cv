@@ -6,9 +6,9 @@ export function ProjectsSection({ projects }) {
       <div className="section-shell">
         <div className="max-w-2xl">
           <p className="text-sm font-black uppercase tracking-wide text-copper">Selected work</p>
-          <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">Cloud, web, and automation projects</h2>
+          <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">Full stack and cloud projects</h2>
           <p className="mt-4 leading-7 text-ink/68">
-            A focused project set that shows infrastructure thinking, programming foundations, and frontend delivery.
+            Real-world projects showcasing web development, cloud infrastructure, and full-stack delivery.
           </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-2">
