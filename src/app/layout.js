@@ -6,18 +6,30 @@ export const metadata = {
     template: "%s | Elvis Bitolo Khanyanga"
   },
   description:
-    "Full stack web developer and cloud practitioner in Nairobi, Kenya. Building responsive web applications with Next.js, React, Firebase, and AWS. Available for freelance web development and cloud projects.",
+    "Full stack web developer and cloud practitioner in Nairobi. I build responsive websites, web applications, and Next.js projects with React, Firebase, and AWS. Hire me for website design, frontend development, and cloud solutions.",
   keywords: [
     "full stack web developer",
-    "web developer Nairobi",
-    "React developer Kenya",
+    "web developer",
+    "website developer",
     "Next.js developer",
+    "Next.js website",
+    "React developer",
+    "React website developer",
     "frontend developer",
     "backend developer",
-    "freelance web developer Kenya",
+    "freelance web developer",
+    "hire web developer",
+    "website design",
+    "web application developer",
     "cloud practitioner",
     "AWS developer",
-    "software developer Kenya"
+    "software developer",
+    "Firebase developer",
+    "responsive website design",
+    "mobile-friendly website",
+    "e-commerce developer",
+    "portfolio website",
+    "business website"
   ],
   openGraph: {
     type: "website",
@@ -25,7 +37,7 @@ export const metadata = {
     siteName: "Elvis Bitolo Khanyanga",
     title: "Elvis Bitolo Khanyanga | Full Stack Web Developer & Cloud Practitioner",
     description:
-      "Full stack web developer and cloud practitioner in Nairobi, Kenya. Building responsive web applications with Next.js, React, Firebase, and AWS."
+      "Full stack web developer and cloud practitioner. Building responsive web applications with Next.js, React, Firebase, and AWS."
   },
   robots: {
     index: true,
