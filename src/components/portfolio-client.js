@@ -5,6 +5,7 @@ import { getProjects, getSiteProfile } from "@/lib/firestore-service";
 import { profile as fallbackProfile } from "@/lib/profile-data";
 import { SiteHeader } from "./site-header";
 import { Hero } from "./hero";
+import { AboutSection } from "./about-section";
 import { ProjectsSection } from "./projects-section";
 import { SkillsSection } from "./skills-section";
 import { ResumeSection } from "./resume-section";
@@ -36,8 +37,9 @@ export function PortfolioClient() {
       <SiteHeader />
       <main>
         <Hero profile={siteProfile} />
+        <AboutSection profile={siteProfile} />
         <ProjectsSection projects={siteProfile.projects} />
-        <SkillsSection skills={siteProfile.skills} />
+        <SkillsSection profile={siteProfile} />
         <ResumeSection profile={siteProfile} />
         <ContactSection profile={siteProfile} />
       </main>

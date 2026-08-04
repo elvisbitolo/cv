@@ -2,13 +2,14 @@ import "./globals.css";
 
 export const metadata = {
   title: {
-    default: "Elvis Bitolo Khanyanga | Full Stack Web Developer & Cloud Practitioner",
+    default: "Elvis Bitolo Khanyanga | Software Developer, Full Stack & AI-Assisted",
     template: "%s | Elvis Bitolo Khanyanga"
   },
   description:
-    "Full stack web developer and cloud practitioner in Nairobi. I build responsive websites, web applications, and Next.js projects with React, Firebase, and AWS. Hire me for website design, frontend development, and cloud solutions.",
+    "Software developer in Nairobi building modern web applications with Next.js, React, Firebase, and AI-assisted workflows. Hire me for website development, SEO, and digital presence.",
   keywords: [
     "full stack web developer",
+    "software developer",
     "web developer",
     "website developer",
     "Next.js developer",
@@ -21,13 +22,12 @@ export const metadata = {
     "hire web developer",
     "website design",
     "web application developer",
-    "cloud practitioner",
-    "AWS developer",
+    "AI-assisted development",
     "software developer",
     "Firebase developer",
     "responsive website design",
     "mobile-friendly website",
-    "e-commerce developer",
+    "SEO developer",
     "portfolio website",
     "business website"
   ],
@@ -35,9 +35,9 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Elvis Bitolo Khanyanga",
-    title: "Elvis Bitolo Khanyanga | Full Stack Web Developer & Cloud Practitioner",
+    title: "Elvis Bitolo Khanyanga | Software Developer, Full Stack & AI-Assisted",
     description:
-      "Full stack web developer and cloud practitioner. Building responsive web applications with Next.js, React, Firebase, and AWS."
+      "Software developer building modern web applications with Next.js, React, Firebase, and AI-assisted workflows."
   },
   robots: {
     index: true,

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Cloud, Code2, Server, MapPin } from "lucide-react";
+import { ArrowUpRight, Code2, MapPin, Search, Sparkles } from "lucide-react";
 import { ButtonLink } from "./button-link";
 
 export function Hero({ profile }) {
@@ -25,9 +25,9 @@ export function Hero({ profile }) {
           </div>
           <div className="mt-9 grid max-w-xl gap-3 sm:grid-cols-3">
             {[
-              ["Cloud", "AWS and Terraform fundamentals", Cloud],
-              ["Full Stack", "Next.js, Firebase, Firestore", Code2],
-              ["Backend", "Auth, data, contact workflows", Server]
+              ["Full Stack", "Next.js, React, Firebase, Prisma", Code2],
+              ["AI-Assisted", "AI workflows and prompt engineering", Sparkles],
+              ["Digital Presence", "SEO, Search Console, Business Profile", Search]
             ].map(([title, body, Icon]) => (
               <div key={title} className="rounded-md border border-ink/10 bg-surface/70 p-4">
                 <Icon className="text-moss" size={22} />

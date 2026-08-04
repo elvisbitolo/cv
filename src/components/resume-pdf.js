@@ -87,6 +87,13 @@ function ResumeDocument({ profile }) {
           <Text style={styles.body}>{profile.summary}</Text>
         </View>
 
+        {profile.careerObjective ? (
+          <View style={styles.section}>
+            <Text style={styles.heading}>Career Objective</Text>
+            <Text style={styles.body}>{profile.careerObjective}</Text>
+          </View>
+        ) : null}
+
         <View style={styles.section}>
           <Text style={styles.heading}>Skills</Text>
           <View style={styles.chips}>
@@ -133,11 +140,72 @@ function ResumeDocument({ profile }) {
               <Text style={styles.itemTitle}>{cert.title}</Text>
               <Text style={styles.meta}>
                 {cert.issuer} | {cert.year}
+                {cert.period ? ` | ${cert.period}` : ""}
               </Text>
               <Text style={styles.body}>{cert.summary}</Text>
             </View>
           ))}
         </View>
+
+        <View style={styles.section}>
+          <Text style={styles.heading}>Education</Text>
+          {profile.education.map((item) => (
+            <View key={item.title} style={styles.item}>
+              <Text style={styles.itemTitle}>{item.title}</Text>
+              <Text style={styles.meta}>
+                {item.institution} | {item.period}
+              </Text>
+              <Text style={styles.body}>{item.summary}</Text>
+              {item.hostedBy ? <Text style={styles.meta}>Hosted by: {item.hostedBy}</Text> : null}
+              {item.organizations?.length ? (
+                <Text style={styles.meta}>
+                  Supported by: {item.organizations.filter((org) => org !== item.hostedBy).join(", ")}
+                </Text>
+              ) : null}
+              {item.signatories?.length ? (
+                <Text style={styles.meta}>
+                  Signed by: {item.signatories.map((s) => `${s.name} (${s.role}, ${s.organization})`).join("; ")}
+                </Text>
+              ) : null}
+            </View>
+          ))}
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.heading}>Core Competencies</Text>
+          {profile.competencies.map((group) => (
+            <View key={group.title} style={styles.item}>
+              <Text style={styles.itemTitle}>{group.title}</Text>
+              <Text style={styles.body}>{group.items.join(" • ")}</Text>
+            </View>
+          ))}
+        </View>
+
+        {profile.areasOfInterest?.length ? (
+          <View style={styles.section}>
+            <Text style={styles.heading}>Areas of Interest</Text>
+            <View style={styles.chips}>
+              {profile.areasOfInterest.map((interest) => (
+                <Text key={interest} style={styles.chip}>
+                  {interest}
+                </Text>
+              ))}
+            </View>
+          </View>
+        ) : null}
+
+        {profile.engineeringPrinciples?.length ? (
+          <View style={styles.section}>
+            <Text style={styles.heading}>Engineering Principles</Text>
+            <View style={styles.chips}>
+              {profile.engineeringPrinciples.map((principle) => (
+                <Text key={principle} style={styles.chip}>
+                  {principle}
+                </Text>
+              ))}
+            </View>
+          </View>
+        ) : null}
       </Page>
     </Document>
   );

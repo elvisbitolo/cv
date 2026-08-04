@@ -1,4 +1,4 @@
-import { Award, BriefcaseBusiness, GraduationCap } from "lucide-react";
+import { Award, BriefcaseBusiness, GraduationCap, Target } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const ResumeDownloadButton = dynamic(() => import("./resume-pdf").then((mod) => mod.ResumeDownloadButton), { ssr: false });
@@ -9,7 +9,7 @@ export function ResumeSection({ profile }) {
       <div className="section-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="text-sm font-black uppercase tracking-wide text-copper">Resume</p>
-          <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">A CV built for cloud and software roles</h2>
+          <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">A CV built for software and full-stack roles</h2>
           <p className="mt-4 leading-7 text-ink/68">
             The downloadable PDF is generated from the same structured profile data that powers this page.
           </p>
@@ -42,6 +42,7 @@ export function ResumeSection({ profile }) {
                 <h3 className="text-lg font-black">{cert.title}</h3>
                 <p className="mt-1 text-sm font-semibold text-copper">
                   {cert.issuer} | {cert.year}
+                  {cert.period ? ` | ${cert.period}` : ""}
                 </p>
                 <p className="mt-3 text-sm leading-6 text-ink/68">{cert.summary}</p>
               </div>
@@ -55,8 +56,40 @@ export function ResumeSection({ profile }) {
                   {item.institution} | {item.period}
                 </p>
                 <p className="mt-3 text-sm leading-6 text-ink/68">{item.summary}</p>
+                {item.hostedBy ? <p className="mt-2 text-xs font-semibold text-ink/52">Hosted by: {item.hostedBy}</p> : null}
+                {item.organizations?.length ? (
+                  <p className="mt-1 text-xs font-semibold text-ink/52">
+                    Supported by: {item.organizations.filter((org) => org !== item.hostedBy).join(", ")}
+                  </p>
+                ) : null}
+                {item.signatories?.length ? (
+                  <div className="mt-3 grid gap-1.5 rounded-md border border-ink/10 bg-paper p-4">
+                    <p className="text-xs font-black uppercase tracking-wide text-ink/52">Signed by</p>
+                    {item.signatories.map((signatory) => (
+                      <p key={signatory.name} className="text-xs leading-5 text-ink/68">
+                        <span className="font-bold">{signatory.name}</span> - {signatory.role}, {signatory.organization}
+                      </p>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             ))}
+          </ResumeBlock>
+          <ResumeBlock icon={Target} title="Core Competencies">
+            <div className="grid gap-5 sm:grid-cols-2">
+              {profile.competencies.map((group) => (
+                <div key={group.title}>
+                  <h3 className="text-sm font-black uppercase tracking-wide text-copper">{group.title}</h3>
+                  <ul className="mt-2 grid gap-1.5">
+                    {group.items.map((item) => (
+                      <li key={item} className="text-sm leading-6 text-ink/68">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </ResumeBlock>
         </div>
       </div>
