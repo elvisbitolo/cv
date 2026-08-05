@@ -101,9 +101,6 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/admin" className="rounded-md px-2 py-3 text-sm font-semibold hover:bg-surface">
-            Admin
-          </Link>
         </div>
       ) : null}
     </header>

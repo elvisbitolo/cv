@@ -5,9 +5,7 @@ export function SiteFooter() {
     <footer className="no-print border-t border-ink/10 bg-paper py-8">
       <div className="section-shell flex flex-col gap-3 text-sm text-ink/62 sm:flex-row sm:items-center sm:justify-between">
         <p>&copy; {new Date().getFullYear()} Elvis Bitolo Khanyanga. Built with Next.js and Firebase.</p>
-        <Link href="/admin" className="font-bold text-ink hover:text-copper">
-          Admin
-        </Link>
+        <Link href="/admin" aria-label="Admin" className="block h-2.5 w-2.5 rounded-full bg-ink/30 transition hover:bg-copper" />
       </div>
     </footer>
   );
