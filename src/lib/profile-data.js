@@ -118,11 +118,14 @@ export const profile = {
         "Certificate of Completion for the Information Communication Technology (Software Development with AI) program. Awarded for successfully completing training in software development, frontend and backend development, databases, software project management, AI-assisted development, security, the React ecosystem, version control, and professional skills. Hosted by Empower Hope and supported by NCCK, Emerging Leaders Foundation, KUJIA, and Standard Bank. Signed by Rev. Canon Chris Kinyanjui (General Secretary, NCCK) and Victor Mbugua (Country Director, Empower Hope)."
     },
     {
-      title: "AWS Cloud Practitioner",
+      title: "AWS Certified Cloud Practitioner",
       issuer: "Amazon Web Services",
       year: "2025",
+      period: "Issued 28 July 2025 - Valid until 28 July 2028",
       summary:
-        "Foundational certification validating cloud knowledge with AWS services, architecture, security, pricing, and support."
+        "Foundational certification validating overall knowledge of the AWS Cloud, including cloud concepts, security and compliance, core AWS services, and billing, pricing, and support. Verifiable on the AWS Certification website.",
+      verificationId: "7ae1f1e5a6514b0cb188fc8f07a7d092",
+      verificationUrl: "https://aws.amazon.com/verification"
     }
   ],
   education: [

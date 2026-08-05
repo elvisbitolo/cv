@@ -45,6 +45,17 @@ export function ResumeSection({ profile }) {
                   {cert.period ? ` | ${cert.period}` : ""}
                 </p>
                 <p className="mt-3 text-sm leading-6 text-ink/68">{cert.summary}</p>
+                {cert.verificationUrl ? (
+                  <a
+                    href={cert.verificationUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-copper hover:underline"
+                  >
+                    Verify credential
+                    {cert.verificationId ? <span className="font-semibold text-ink/52">({cert.verificationId})</span> : null}
+                  </a>
+                ) : null}
               </div>
             ))}
           </ResumeBlock>

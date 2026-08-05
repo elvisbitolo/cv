@@ -37,7 +37,22 @@ export const metadata = {
     siteName: "Elvis Bitolo Khanyanga",
     title: "Elvis Bitolo Khanyanga | Software Developer, Full Stack & AI-Assisted",
     description:
-      "Software developer building modern web applications with Next.js, React, Firebase, and AI-assisted workflows."
+      "Software developer building modern web applications with Next.js, React, Firebase, and AI-assisted workflows.",
+    images: [
+      {
+        url: "/images/elvis.jpg",
+        width: 1086,
+        height: 1448,
+        alt: "Elvis Bitolo Khanyanga"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elvis Bitolo Khanyanga | Software Developer, Full Stack & AI-Assisted",
+    description:
+      "Software developer building modern web applications with Next.js, React, Firebase, and AI-assisted workflows.",
+    images: ["/images/elvis.jpg"]
   },
   robots: {
     index: true,
