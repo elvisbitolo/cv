@@ -79,7 +79,11 @@ function ResumeDocument({ profile }) {
         <Text style={styles.name}>{profile.name}</Text>
         <Text style={styles.role}>{profile.role}</Text>
         <Text style={styles.contact}>
-          {profile.location} | {profile.email} | github.com/elvisbitolo | linkedin.com/in/elvis-bitolo
+          {profile.location} | {profile.email} |{" "}
+          {profile.socialLinks
+            .filter((link) => /github|linkedin/i.test(link.href))
+            .map((link) => link.href.replace(/^https?:\/\/(www\.)?/, ""))
+            .join(" | ")}
         </Text>
 
         <View style={styles.section}>

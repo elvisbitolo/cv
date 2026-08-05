@@ -228,7 +228,7 @@ export default function AdminPage() {
                 </label>
                 <TextInput
                   label="Stack, comma separated"
-                  value={project.stack.join(", ")}
+                  value={(project.stack || []).join(", ")}
                   onChange={(stack) => updateProject(index, { ...project, stack: stack.split(",").map((item) => item.trim()).filter(Boolean) })}
                   className="mt-4"
                 />

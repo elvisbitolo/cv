@@ -3,9 +3,11 @@ export const profile = {
   role: "Software Developer | Full Stack & AI-Assisted Development",
   location: "Nairobi, Kenya",
   email: "elvisbitolo11@gmail.com",
+  phone: "+254717162026",
+  whatsapp: "https://wa.me/254717162026",
   avatar: "/images/elvis.jpg",
   summary:
-    "Software developer passionate about building modern, scalable, user-focused web applications. Earned a Certificate of Completion in Information Communication Technology (Software Development with AI) from Empower Hope (23 February - 20 June 2026) and consistently goes beyond the curriculum through self-directed learning and real client work - covering full-stack development, AI-assisted workflows, deployment, SEO, and helping businesses establish an effective online presence. Focused on software architecture, user experience, backend systems, and helping businesses grow their digital presence.",
+    "Software developer passionate about building modern, scalable, user-focused web applications. Earned a Certificate of Completion in Information Communication Technology (Software Development with AI) from Empower Hope (23 February 2026 - 20 June 2026) and consistently goes beyond the curriculum through self-directed learning and real client work - covering full-stack development, AI-assisted workflows, deployment, SEO, and helping businesses establish an effective online presence. Focused on software architecture, user experience, backend systems, and helping businesses grow their digital presence.",
   socialLinks: [
     { label: "GitHub", href: "https://github.com/elvisbitolo" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/elvis-bitolo/" },
@@ -90,21 +92,21 @@ export const profile = {
     {
       role: "Freelance Software Developer",
       company: "Independent Client Projects",
-      period: "2025 - Present",
+      period: "2026 - Present",
       details: [
-        "Built and deployed the Brilliant Angels CBO website - a multi-page Next.js application with contact forms, WhatsApp integration, and Google Search Console optimization.",
-        "Developed business websites, a political campaign website, and portfolio websites for real clients.",
-        "Helped local businesses establish an online presence through Google Business Profile setup and local SEO advice."
+        "Built and deployed the Brilliant Angels Academy website - a multi-page Next.js site for a community-based school and CBO in Githogoro, Nairobi, with programs, M-Pesa donation integration, WhatsApp contact, news, and gallery.",
+        "Built the Austine Omondi MCA 2027 campaign website - with manifesto, events, election countdown, and M-Pesa donation support.",
+        "Set up Google Business Profiles for local businesses (including Rafiki Wholesale) and provided local SEO guidance."
       ]
     },
     {
       role: "Web Development & Cloud Projects",
       company: "Self-Directed Learning & Practice",
-      period: "2024 - Present",
+      period: "2026 - Present",
       details: [
+        "Designed and built Githogoro, a community app for the Githogoro area with neighborhood chat, a local job board, business directory, live map, video feed, and emergency alerts.",
         "Designed responsive, mobile-first interfaces and full-stack workflows deployed on Vercel with Firebase backends.",
-        "Built cloud infrastructure projects using AWS and Terraform for networking and deployment.",
-        "Invested in self-learning across Next.js, Prisma ORM, Linux development environments, and deployment workflows."
+        "Built cloud infrastructure projects using AWS and Terraform for networking and deployment."
       ]
     }
   ],
@@ -132,7 +134,7 @@ export const profile = {
     {
       title: "Information Communication Technology (Software Development with AI)",
       institution: "Empower Hope",
-      period: "23 Feb 2026 - 20 Jun 2026",
+      period: "23 February 2026 - 20 June 2026",
       summary:
         "Certificate of Completion program focused on practical digital skills, innovation, workplace readiness, and modern software development practices. Covered programming fundamentals, software engineering principles, the software development lifecycle, frontend and backend development, databases, software project management, the React ecosystem, version control, AI-assisted development, security, and professional skills.",
       hostedBy: "Empower Hope",
@@ -234,22 +236,31 @@ export const profile = {
     "Completing a course is only the beginning of becoming a professional software developer. Beyond formal ICT training, consistently invests time in mastering modern technologies such as Next.js, Prisma ORM, Linux development environments, Firebase, deployment workflows, Google Search Console, and Google Business Profile optimization. Regularly builds personal projects, solves real client problems, and explores new technologies to strengthen both technical depth and practical experience. The goal is to become a highly skilled software engineer capable of designing, developing, deploying, and maintaining modern web applications while helping businesses leverage technology to grow their digital presence.",
   projects: [
     {
-      title: "Brilliant Angels CBO Website",
-      category: "Full Stack Web App",
+      title: "Brilliant Angels Academy Website",
+      category: "Client Web Project",
       description:
-        "Multi-page Next.js website for a community-based organisation in Nairobi. Features program pages, donation info, contact forms, WhatsApp integration, SEO optimization with sitemap and Google Search Console.",
+        "Multi-page Next.js website for a community-based school and CBO in Githogoro, Nairobi. Features programs, M-Pesa donation integration, WhatsApp contact, news, gallery, and volunteer/donate pages.",
       stack: ["Next.js", "React", "Firebase", "Vercel", "SEO"],
       github: "",
       live: "https://brilliant-angel-cbo.vercel.app"
     },
     {
-      title: "Political Campaign Website",
+      title: "Austine Omondi MCA 2027 Campaign Website",
       category: "Client Web Project",
       description:
-        "Campaign website built for a real client, featuring candidate profile, policy areas, events, and donation links with a clean, mobile-first design.",
-      stack: ["Next.js", "React", "Tailwind CSS", "SEO"],
+        "Campaign website for an MCA aspirant in Karura Ward. Features candidate background, manifesto, events, 2027 election countdown, FAQ, gallery, and M-Pesa donation support.",
+      stack: ["Next.js", "React", "Tailwind CSS", "M-Pesa", "SEO"],
       github: "",
-      live: ""
+      live: "https://austine-omondi.vercel.app"
+    },
+    {
+      title: "Githogoro Community App",
+      category: "Full Stack Web App",
+      description:
+        "Community platform for the Githogoro area with neighborhood chat, a local job board, business directory, live map of services, video feed, and emergency alerts.",
+      stack: ["Next.js", "React", "Firebase", "Tailwind CSS", "Vercel"],
+      github: "",
+      live: "https://githogoro.vercel.app"
     },
     {
       title: "AWS VPC Terraform Project",

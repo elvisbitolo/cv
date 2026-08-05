@@ -1,29 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Send } from "lucide-react";
-import { createContactMessage } from "@/lib/firestore-service";
-import { isFirebaseConfigured } from "@/lib/firebase";
+import { Mail, MessageCircle, Send } from "lucide-react";
 
 export function ContactSection({ profile }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("idle");
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    if (!isFirebaseConfigured) {
-      setStatus("firebase-missing");
-      return;
-    }
-    setStatus("saving");
-    try {
-      await createContactMessage(form);
-      setForm({ name: "", email: "", message: "" });
-      setStatus("saved");
-    } catch (error) {
-      console.error(error);
-      setStatus("error");
-    }
+    const text = encodeURIComponent(
+      `Hi Elvis, my name is ${form.name}.\n\n${form.message}\n\nContact: ${form.email}`
+    );
+    window.open(`${profile.whatsapp}?text=${text}`, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -35,10 +23,23 @@ export function ContactSection({ profile }) {
           <p className="mt-4 leading-7 text-ink/68">
             Send a message for cloud projects, web development, collaboration, or technical content work.
           </p>
-          <a href={`mailto:${profile.email}`} className="mt-6 inline-flex items-center gap-2 text-sm font-black text-moss">
-            <Mail size={18} />
-            {profile.email}
-          </a>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 text-sm font-black text-moss">
+              <Mail size={18} />
+              {profile.email}
+            </a>
+            {profile.whatsapp ? (
+              <a
+                href={profile.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                className="focus-ring inline-flex items-center gap-2 rounded-md bg-[#25D366] px-4 py-2 text-sm font-bold text-white transition hover:brightness-110"
+              >
+                <MessageCircle size={18} />
+                WhatsApp
+              </a>
+            ) : null}
+          </div>
           <div className="mt-8 flex flex-wrap gap-3">
             {profile.socialLinks.map((link) => (
               <a
@@ -54,7 +55,10 @@ export function ContactSection({ profile }) {
           </div>
         </div>
         <form onSubmit={handleSubmit} className="rounded-md border border-ink/10 bg-paper p-5 sm:p-6">
-          <div className="grid gap-4 sm:grid-cols-2">
+          <p className="text-sm font-bold text-ink/62">
+            Fill this in and it opens WhatsApp with your message ready to send.
+          </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-bold">
               Name
               <input
@@ -85,18 +89,10 @@ export function ContactSection({ profile }) {
               className="focus-ring resize-y rounded-md border border-ink/10 bg-surface p-3"
             />
           </label>
-          <button
-            disabled={status === "saving"}
-            className="focus-ring mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss disabled:cursor-not-allowed disabled:opacity-70 dark:bg-white dark:text-ink dark:hover:bg-copper dark:hover:text-white"
-          >
+          <button className="focus-ring mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#25D366] px-4 py-2 text-sm font-semibold text-white transition hover:brightness-110">
             <Send size={17} />
-            {status === "saving" ? "Sending" : "Send Message"}
+            Send via WhatsApp
           </button>
-          {status === "saved" ? <p className="mt-3 text-sm font-bold text-moss">Message saved successfully.</p> : null}
-          {status === "firebase-missing" ? (
-            <p className="mt-3 text-sm font-bold text-copper">Message form needs Firebase environment variables. Please email me instead.</p>
-          ) : null}
-          {status === "error" ? <p className="mt-3 text-sm font-bold text-copper">Message could not be saved. Check Firebase rules.</p> : null}
         </form>
       </div>
     </section>
