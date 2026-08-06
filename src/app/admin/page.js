@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { Plus, Save, ShieldCheck } from "lucide-react";
 import { auth, isFirebaseConfigured } from "@/lib/firebase";
@@ -9,19 +9,15 @@ import { profile as fallbackProfile } from "@/lib/profile-data";
 import Link from "next/link";
 
 export default function AdminPage() {
-  const [user, setUser] = useState(null);
+  const user = useSyncExternalStore(
+    (callback) => (auth ? onAuthStateChanged(auth, callback) : () => {}),
+    () => auth?.currentUser ?? null,
+    () => null
+  );
   const [login, setLogin] = useState({ email: "", password: "" });
   const [profile, setProfile] = useState(fallbackProfile);
   const [projects, setProjects] = useState(fallbackProfile.projects);
   const [status, setStatus] = useState("idle");
-
-  useEffect(() => {
-    if (!auth) {
-      setStatus("firebase-missing");
-      return undefined;
-    }
-    return onAuthStateChanged(auth, setUser);
-  }, []);
 
   useEffect(() => {
     async function loadAdminData() {
@@ -74,6 +70,31 @@ export default function AdminPage() {
       console.error(error);
       setStatus("save-error");
     }
+  }
+
+  const adminEnabled = process.env.NEXT_PUBLIC_ENABLE_ADMIN === "true";
+
+  if (!adminEnabled) {
+    return (
+      <main className="min-h-screen bg-paper px-4 py-10">
+        <div className="mx-auto max-w-md rounded-md border border-ink/10 bg-white p-6 shadow-soft">
+          <Link href="/" className="text-sm font-black text-copper">
+            Back to portfolio
+          </Link>
+          <div className="mt-8 flex items-center gap-3">
+            <div className="rounded-md bg-copper/10 p-2 text-copper">
+              <ShieldCheck size={22} />
+            </div>
+            <div>
+              <h1 className="text-2xl font-black">Admin disabled</h1>
+              <p className="mt-1 text-sm text-ink/62">
+                The admin area is not available in this build. Set <code>NEXT_PUBLIC_ENABLE_ADMIN=true</code> to enable it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
   }
 
   if (!user) {

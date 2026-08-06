@@ -1,9 +1,25 @@
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata = {
   metadataBase: new URL("https://elvis-bitolo.vercel.app"),
+  applicationName: "Elvis Bitolo Khanyanga",
+  authors: [{ name: "Elvis Bitolo Khanyanga", url: "https://elvis-bitolo.vercel.app" }],
+  creator: "Elvis Bitolo Khanyanga",
+  publisher: "Elvis Bitolo Khanyanga",
+  category: "Portfolio",
   alternates: {
     canonical: "/"
+  },
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.png"
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Elvis Bitolo",
+    statusBarStyle: "black-translucent"
   },
   title: {
     default: "Elvis Bitolo Khanyanga | Freelance Web Developer in Nairobi, Kenya",
@@ -70,14 +86,22 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="google-site-verification" content="EO1A_95MmyPuFD2ULeSrZ2xzliMUJEdAWtRmclDUwPo" />
         <meta name="google-site-verification" content="UKoNzw8c8iMUjQk56NbNTThfaz96V0GMdNM2Fatryz4" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2PTLF3T94" />
-        <script
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-G2PTLF3T94"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="ga4-init"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G2PTLF3T94');`
           }}
         />
-        <script
+        <Script
+          id="clarity-init"
           type="text/javascript"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xtit2sypy7");`
           }}
@@ -95,16 +119,63 @@ export default function RootLayout({ children }) {
               "telephone": "+254717162026",
               "image": "https://elvis-bitolo.vercel.app/images/elvis.jpg",
               "url": "https://elvis-bitolo.vercel.app",
+              "nationality": {
+                "@type": "Country",
+                "name": "Kenya"
+              },
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Nairobi",
                 "addressCountry": "KE"
               },
               "sameAs": [
+                "https://www.wikidata.org/wiki/Q140911671",
                 "https://github.com/elvisbitolo",
                 "https://www.linkedin.com/in/elvis-bitolo/",
                 "https://medium.com/@elvisbitolo11",
                 "https://www.youtube.com/@ElvisBitolo-7"
+              ],
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Web Developer"
+              },
+              "alumniOf": {
+                "@type": "Organization",
+                "name": "Empower Hope"
+              },
+              "hasCredential": [
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "certification",
+                  "name": "ICT: Software Development with AI - Certificate of Completion",
+                  "description": "Certificate of Completion for the Information Communication Technology (Software Development with AI) program hosted by Empower Hope.",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "Empower Hope"
+                  },
+                  "dateIssued": "2026"
+                },
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "certification",
+                  "name": "AWS Certified Cloud Practitioner",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "Amazon Web Services"
+                  },
+                  "dateIssued": "2025",
+                  "validUntil": "2028-07-28"
+                }
+              ],
+              "knowsLanguage": [
+                {
+                  "@type": "Language",
+                  "name": "English"
+                },
+                {
+                  "@type": "Language",
+                  "name": "Swahili"
+                }
               ],
               "knowsAbout": [
                 "Next.js",
