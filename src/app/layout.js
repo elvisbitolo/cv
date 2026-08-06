@@ -69,6 +69,19 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="EO1A_95MmyPuFD2ULeSrZ2xzliMUJEdAWtRmclDUwPo" />
+        <meta name="google-site-verification" content="UKoNzw8c8iMUjQk56NbNTThfaz96V0GMdNM2Fatryz4" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2PTLF3T94" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G2PTLF3T94');`
+          }}
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xtit2sypy7");`
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

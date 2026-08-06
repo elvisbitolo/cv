@@ -11,13 +11,11 @@ import { SkillsSection } from "./skills-section";
 import { ResumeSection } from "./resume-section";
 import { ContactSection } from "./contact-section";
 import { SiteFooter } from "./site-footer";
-import { initAnalytics } from "@/lib/firebase";
 
 export function PortfolioClient() {
   const [siteProfile, setSiteProfile] = useState(fallbackProfile);
 
   useEffect(() => {
-    initAnalytics();
     async function loadData() {
       try {
         const [remoteProfile, remoteProjects] = await Promise.all([
