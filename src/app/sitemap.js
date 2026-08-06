@@ -6,7 +6,8 @@ export default function sitemap() {
       url: siteUrl,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 1
+      priority: 1,
+      images: [`${siteUrl}/images/elvis.jpg`, `${siteUrl}/images/og-image.jpg`]
     }
   ];
 }
