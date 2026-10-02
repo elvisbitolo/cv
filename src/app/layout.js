@@ -63,7 +63,8 @@ export const metadata = {
     "website developer",
     "frontend developer",
     "backend developer",
-    "AI-assisted development"
+    "AI-assisted development",
+    "Elvis Bitolo"
   ],
 
   openGraph: {
@@ -171,7 +172,15 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Person",
 
+              "@id": "https://elvis-bitolo.vercel.app/#person",
+
               "name": "Elvis Bitolo Khanyanga",
+
+              /*
+               * Shorter name used publicly (header, GitHub, LinkedIn).
+               * Helps Google connect "Elvis Bitolo" to this person.
+               */
+              "alternateName": ["Elvis Bitolo"],
 
               "url": "https://elvis-bitolo.vercel.app",
 
