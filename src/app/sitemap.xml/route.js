@@ -18,6 +18,11 @@ export function GET() {
     <image:image>
       <image:loc>${siteUrl}/images/og-image.jpg</image:loc>
     </image:image>
+  </url>  <url>
+    <loc>${siteUrl}/services</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>`;
 

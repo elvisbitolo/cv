@@ -6,11 +6,13 @@ import { profile as fallbackProfile } from "@/lib/profile-data";
 import { SiteHeader } from "./site-header";
 import { Hero } from "./hero";
 import { AboutSection } from "./about-section";
+import { ServicesSection } from "./services-section";
 import { ProjectsSection } from "./projects-section";
 import { SkillsSection } from "./skills-section";
 import { ResumeSection } from "./resume-section";
 import { ContactSection } from "./contact-section";
 import { SiteFooter } from "./site-footer";
+import ChatWidget from "./chat-widget";
 
 export function PortfolioClient() {
   const [siteProfile, setSiteProfile] = useState(fallbackProfile);
@@ -36,12 +38,14 @@ export function PortfolioClient() {
       <main>
         <Hero profile={siteProfile} />
         <AboutSection profile={siteProfile} />
+        <ServicesSection profile={siteProfile} />
         <ProjectsSection projects={siteProfile.projects} />
         <SkillsSection profile={siteProfile} />
         <ResumeSection profile={siteProfile} />
         <ContactSection profile={siteProfile} />
       </main>
       <SiteFooter />
+      <ChatWidget />
     </>
   );
 }

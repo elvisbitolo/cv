@@ -1,0 +1,41 @@
+// Firestore security rules for the portfolio live chat.
+//
+// IMPORTANT: These rules cover ONLY the /chats collections.
+// If you already have rules (profile, projects, contact messages, etc.),
+// copy the match blocks below INTO your existing rules file - do not
+// delete the rules you already have. Then deploy in the Firebase console:
+// Firestore > Rules > paste > Publish.
+//
+// Also required (one-time): Firebase console > Authentication >
+// Sign-in method > Anonymous > Enable (visitors chat without an account).
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == 'elvisbitolo11@gmail.com';
+    }
+
+    function isOwner(visitorId) {
+      return isSignedIn() && request.auth.uid == visitorId;
+    }
+
+    match /chats/{visitorId} {
+      allow read: if isOwner(visitorId) || isAdmin();
+      allow create, update: if isOwner(visitorId) || isAdmin();
+      allow delete: if isAdmin();
+
+      match /messages/{messageId} {
+        allow read: if isOwner(visitorId) || isAdmin();
+        allow create: if (isOwner(visitorId) && request.resource.data.sender == 'visitor')
+          || (isAdmin() && request.resource.data.sender == 'admin');
+        allow update, delete: if isAdmin();
+      }
+    }
+  }
+}

@@ -116,6 +116,18 @@ public/
 
 Profile and project data live in `src/lib/profile-data.js` as a fallback. When Firebase is configured, `src/lib/firestore-service.js` reads the live profile from `site/profile` and projects from `projects` (ordered by `rank`), overriding the fallback. Edit content via the `/admin` panel or directly in the data files.
 
+## Live Chat
+
+Visitors get a floating chat widget (homepage and `/services`). Replies arrive in real time, and the `/admin` inbox shows every thread with an unread badge. Threads live in Firestore at `chats/{visitorId}` with a `messages` subcollection.
+
+One-time setup:
+
+1. **Enable Anonymous auth** - Firebase console > Authentication > Sign-in method > Anonymous > Enable (visitors chat without an account).
+2. **Publish security rules** - paste the match blocks from [`firestore.rules`](./firestore.rules) into the Firebase console (Firestore > Rules). If you already have rules for `profile`/`projects`/`messages`, merge the blocks instead of replacing your rules.
+3. **Optional email notifications** - create a free key at [resend.com](https://resend.com) and set `RESEND_API_KEY` + `CHAT_NOTIFY_EMAIL` (locally in `.env.local`, on Vercel in Project Settings). Without them, chat works but no email is sent.
+
+Admin replies require signing in at `/admin` (set `NEXT_PUBLIC_ENABLE_ADMIN=true`).
+
 ## Deployment
 
 The site is deployed on Vercel. `vercel.json` adds security headers (`X-Content-Type-Options`, `Strict-Transport-Security`, `Referrer-Policy`, etc.) and cache headers for `sitemap.xml` and `robots.txt`. SEO support includes sitemap, robots.txt, Open Graph / Twitter card metadata, and Google Search Console verification.

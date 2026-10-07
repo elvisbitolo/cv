@@ -5,6 +5,7 @@ import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebas
 import { Plus, Save, ShieldCheck } from "lucide-react";
 import { auth, isFirebaseConfigured } from "@/lib/firebase";
 import { getProjects, getSiteProfile, saveProfile, saveProject } from "@/lib/firestore-service";
+import AdminChatInbox from "@/components/admin-chat-inbox";
 import { profile as fallbackProfile } from "@/lib/profile-data";
 import Link from "next/link";
 
@@ -262,6 +263,10 @@ export default function AdminPage() {
           {status === "save-error" ? <p className="mt-4 text-sm font-bold text-copper">Save failed. Check Firestore rules.</p> : null}
         </section>
       </form>
+
+      <div className="section-shell mt-6 grid gap-6">
+        <AdminChatInbox />
+      </div>
     </main>
   );
 

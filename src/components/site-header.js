@@ -5,9 +5,10 @@ import { Download, Github, Linkedin, Menu, Moon, Sun, X } from "lucide-react";
 import { useCallback, useState, useSyncExternalStore } from "react";
 
 const navItems = [
-  { label: "Work", href: "#projects" },
-  { label: "Resume", href: "#resume" },
-  { label: "Contact", href: "#contact" }
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/#projects" },
+  { label: "Resume", href: "/#resume" },
+  { label: "Contact", href: "/#contact" }
 ];
 
 function useTheme() {
@@ -60,7 +61,7 @@ export function SiteHeader() {
             <Linkedin size={20} />
           </Link>
           <Link
-            href="#resume"
+            href="/#resume"
             className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white hover:bg-moss dark:bg-white dark:text-ink dark:hover:bg-copper dark:hover:text-white"
           >
             <Download size={17} />
