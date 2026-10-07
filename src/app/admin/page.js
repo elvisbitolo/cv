@@ -15,6 +15,7 @@ export default function AdminPage() {
     () => auth?.currentUser ?? null,
     () => null
   );
+  const adminUser = user && !user.isAnonymous ? user : null;
   const [login, setLogin] = useState({ email: "", password: "" });
   const [profile, setProfile] = useState(fallbackProfile);
   const [projects, setProjects] = useState(fallbackProfile.projects);
@@ -22,7 +23,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     async function loadAdminData() {
-      if (!user) return;
+      if (!adminUser) return;
       setStatus("loading");
       try {
         const [remoteProfile, remoteProjects] = await Promise.all([
@@ -38,7 +39,7 @@ export default function AdminPage() {
       }
     }
     loadAdminData();
-  }, [user]);
+  }, [adminUser]);
 
   const profileJson = useMemo(() => JSON.stringify(profile, null, 2), [profile]);
 
@@ -98,7 +99,7 @@ export default function AdminPage() {
     );
   }
 
-  if (!user) {
+  if (!adminUser) {
     return (
       <main className="min-h-screen bg-paper px-4 py-10">
         <div className="mx-auto max-w-md rounded-md border border-ink/10 bg-white p-6 shadow-soft">
