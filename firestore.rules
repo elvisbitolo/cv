@@ -1,12 +1,9 @@
-// Firestore security rules for the portfolio live chat.
+// Firestore security rules for the portfolio.
+// Full replacement: public reads for portfolio content, admin-only edits,
+// and visitor-scoped live chat. Paste into the Firebase console
+// (Firestore > Rules) and Publish.
 //
-// IMPORTANT: These rules cover ONLY the /chats collections.
-// If you already have rules (profile, projects, contact messages, etc.),
-// copy the match blocks below INTO your existing rules file - do not
-// delete the rules you already have. Then deploy in the Firebase console:
-// Firestore > Rules > paste > Publish.
-//
-// Also required (one-time): Firebase console > Authentication >
+// Required (one-time): Firebase console > Authentication >
 // Sign-in method > Anonymous > Enable (visitors chat without an account).
 
 rules_version = '2';
@@ -25,17 +22,41 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == visitorId;
     }
 
+    // Public portfolio content - anyone reads, only the admin edits.
+    match /site/profile {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /projects/{projectId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Live chat - visitors only touch their own thread, admin touches all.
     match /chats/{visitorId} {
       allow read: if isOwner(visitorId) || isAdmin();
-      allow create, update: if isOwner(visitorId) || isAdmin();
+      allow create, update: if (isOwner(visitorId) || isAdmin())
+        && request.resource.data.keys().hasOnly(
+          ['visitorId', 'lastMessage', 'lastSender', 'updatedAt', 'createdAt', 'unread', 'visitorUnread']
+        );
       allow delete: if isAdmin();
 
       match /messages/{messageId} {
         allow read: if isOwner(visitorId) || isAdmin();
-        allow create: if (isOwner(visitorId) && request.resource.data.sender == 'visitor')
-          || (isAdmin() && request.resource.data.sender == 'admin');
+        allow create: if request.resource.data.keys().hasOnly(['text', 'sender', 'createdAt'])
+          && request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 1000
+          && ((isOwner(visitorId) && request.resource.data.sender == 'visitor')
+            || (isAdmin() && request.resource.data.sender == 'admin'));
         allow update, delete: if isAdmin();
       }
+    }
+
+    // Everything else is closed by default.
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }
