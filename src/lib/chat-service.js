@@ -25,7 +25,7 @@ export function ensureVisitorAuth() {
   if (auth.currentUser) {
     return Promise.resolve(auth.currentUser);
   }
-  return signInAnonymously(auth);
+  return signInAnonymously(auth).then((credential) => credential.user);
 }
 
 export function subscribeToVisitorChatMeta(visitorId, callback, onError) {
