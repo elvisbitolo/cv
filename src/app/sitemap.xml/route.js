@@ -1,8 +1,21 @@
+import { servicePages } from "@/lib/service-pages";
+
 export const dynamic = "force-static";
 
 export function GET() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elvis-bitolo.vercel.app";
   const lastmod = new Date().toISOString();
+
+  const serviceUrls = servicePages
+    .map(
+      (page) => `  <url>
+    <loc>${siteUrl}/services/${page.slug}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`
+    )
+    .join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -18,12 +31,14 @@ export function GET() {
     <image:image>
       <image:loc>${siteUrl}/images/og-image.jpg</image:loc>
     </image:image>
-  </url>  <url>
+  </url>
+  <url>
     <loc>${siteUrl}/services</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+${serviceUrls}
 </urlset>`;
 
   return new Response(xml, {

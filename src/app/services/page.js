@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { profile } from "@/lib/profile-data";
+import { servicePages } from "@/lib/service-pages";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import ChatWidget from "@/components/chat-widget";
@@ -329,6 +330,45 @@ export default function ServicesPage() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-ink/10 bg-surface py-20">
+          <div className="section-shell">
+            <p className="text-sm font-black uppercase tracking-wide text-copper">
+              Specialist services
+            </p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-black text-ink sm:text-4xl">
+              Explore a service in detail
+            </h2>
+            <p className="mt-4 max-w-2xl leading-7 text-ink/68">
+              Looking for something specific? Each page below goes deeper into
+              a service, how it works and what it costs.
+            </p>
+
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {servicePages.map((service) => (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="focus-ring group rounded-md border border-ink/10 bg-paper p-6 hover:border-moss"
+                >
+                  <p className="text-sm font-black uppercase tracking-wide text-copper">
+                    {service.eyebrow}
+                  </p>
+                  <h3 className="mt-2 text-lg font-black text-ink">
+                    {service.label}
+                  </h3>
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-moss">
+                    View details
+                    <ArrowRight
+                      size={15}
+                      className="transition-transform group-hover:translate-x-0.5"
+                    />
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
