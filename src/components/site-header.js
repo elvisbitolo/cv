@@ -6,6 +6,7 @@ import { useCallback, useState, useSyncExternalStore } from "react";
 
 const navItems = [
   { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Work", href: "/#projects" },
   { label: "Resume", href: "/#resume" },
   { label: "Contact", href: "/#contact" }
