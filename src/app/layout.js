@@ -22,11 +22,6 @@ export const metadata = {
 
   manifest: "/manifest.webmanifest",
 
-  icons: {
-    icon: "/icon.svg",
-    apple: "/apple-icon.png"
-  },
-
   appleWebApp: {
     capable: true,
     title: "Elvis Bitolo",
