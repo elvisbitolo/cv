@@ -121,7 +121,7 @@ export default function RootLayout({ children }) {
         {/* Google Analytics */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-G2PTLF3T94"
+          src="https://www.googletagmanager.com/gtag/js?id=G-7E37FE03JS"
           strategy="afterInteractive"
         />
 
@@ -133,7 +133,7 @@ export default function RootLayout({ children }) {
               window.dataLayer=window.dataLayer||[];
               function gtag(){dataLayer.push(arguments);}
               gtag('js',new Date());
-              gtag('config','G-G2PTLF3T94');
+              gtag('config','G-7E37FE03JS');
             `
           }}
         />
