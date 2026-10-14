@@ -236,6 +236,24 @@ export const profile = {
     "Completing a course is only the beginning of becoming a professional software developer. Beyond formal ICT training, consistently invests time in mastering modern technologies such as Next.js, Prisma ORM, Linux development environments, Firebase, deployment workflows, Google Search Console, and Google Business Profile optimization. Regularly builds personal projects, solves real client problems, and explores new technologies to strengthen both technical depth and practical experience. The goal is to become a highly skilled software engineer capable of designing, developing, deploying, and maintaining modern web applications while helping businesses leverage technology to grow their digital presence.",
   projects: [
     {
+      title: "Christa's Speakeasy",
+      category: "Full Stack Web App",
+      description:
+        "Membership community platform with 24/7 live video lounges, a member Match Maker, an availability calendar and themed interest groups. Includes user accounts, paid subscriptions and a responsive member dashboard.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Authentication", "Subscriptions"],
+      github: "",
+      live: "https://christasspeakeasy.com"
+    },
+    {
+      title: "Better Tomorrow School Website",
+      category: "Client Web Project",
+      description:
+        "Multi-page website for a community school in Vumilia Slum, Donholm, Nairobi. Presents programs, a photo gallery, admissions steps, FAQ and ways to volunteer or donate, with WhatsApp contact and an enquiry form.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Netlify", "SEO"],
+      github: "",
+      live: "https://better-tomorrow-school.netlify.app"
+    },
+    {
       title: "Brilliant Angels Academy Website",
       category: "Client Web Project",
       description:
