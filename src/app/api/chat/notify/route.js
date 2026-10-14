@@ -36,7 +36,7 @@ export async function POST(request) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: "Portfolio Chat <onboarding@resend.com>",
+        from: "Portfolio Chat <onboarding@resend.dev>",
         to: [notifyEmail],
         reply_to: notifyEmail,
         subject: "New chat message on your portfolio",

@@ -51,7 +51,7 @@ export async function POST(request) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: "Portfolio Leads <onboarding@resend.com>",
+        from: "Portfolio Leads <onboarding@resend.dev>",
         to: [notifyEmail],
         reply_to: email,
         subject: `New enquiry${interest ? `: ${interest}` : ""} — ${name}`,
