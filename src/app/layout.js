@@ -329,7 +329,7 @@ export default function RootLayout({ children }) {
               "@id": "https://elvis-bitolo.vercel.app/#website",
               "url": "https://elvis-bitolo.vercel.app",
               "name": "Elvis Bitolo Khanyanga",
-              "alternateName": ["Elvis Bitolo"],
+              "alternateName": ["Elvis Bitolo", "elvis-bitolo.vercel.app"],
               "inLanguage": "en",
               "description":
                 "Portfolio of Elvis Bitolo Khanyanga, a freelance web developer and full-stack software developer based in Nairobi, Kenya.",
