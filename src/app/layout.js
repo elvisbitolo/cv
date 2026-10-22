@@ -31,6 +31,13 @@ export const metadata = {
     apple: "/apple-icon.png?v=2"
   },
 
+  verification: {
+    google: [
+      "EO1A_95MmyPuFD2ULeSrZ2xzliMUJEdAWtRmclDUwPo",
+      "UKoNzw8c8iMUjQk56NbNTThfaz96V0GMdNM2Fatryz4"
+    ]
+  },
+
   appleWebApp: {
     capable: true,
     title: "Elvis Bitolo",
@@ -107,7 +114,14 @@ export const metadata = {
 
   robots: {
     index: true,
-    follow: true
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
   }
 };
 
@@ -115,17 +129,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-
-        {/* Google Search Console verification */}
-        <meta
-          name="google-site-verification"
-          content="EO1A_95MmyPuFD2ULeSrZ2xzliMUJEdAWtRmclDUwPo"
-        />
-
-        <meta
-          name="google-site-verification"
-          content="UKoNzw8c8iMUjQk56NbNTThfaz96V0GMdNM2Fatryz4"
-        />
 
         {/* Google Analytics */}
         <Script
@@ -312,6 +315,27 @@ export default function RootLayout({ children }) {
                 "SEO",
                 "AI-Assisted Software Development"
               ]
+            })
+          }}
+        />
+
+        {/* Elvis Bitolo Khanyanga - WebSite Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://elvis-bitolo.vercel.app/#website",
+              "url": "https://elvis-bitolo.vercel.app",
+              "name": "Elvis Bitolo Khanyanga",
+              "alternateName": ["Elvis Bitolo"],
+              "inLanguage": "en",
+              "description":
+                "Portfolio of Elvis Bitolo Khanyanga, a freelance web developer and full-stack software developer based in Nairobi, Kenya.",
+              "publisher": {
+                "@id": "https://elvis-bitolo.vercel.app/#person"
+              }
             })
           }}
         />
