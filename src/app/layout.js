@@ -22,6 +22,15 @@ export const metadata = {
 
   manifest: "/manifest.webmanifest",
 
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=2", sizes: "48x48", type: "image/x-icon" },
+      { url: "/icon.png?v=2", type: "image/png", sizes: "192x192" }
+    ],
+    shortcut: "/favicon.ico?v=2",
+    apple: "/apple-icon.png?v=2"
+  },
+
   appleWebApp: {
     capable: true,
     title: "Elvis Bitolo",
