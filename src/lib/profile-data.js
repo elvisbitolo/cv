@@ -5,7 +5,7 @@
    email: "elvisbitolo11@gmail.com",
    phone: "+254717162026",
    whatsapp: "https://wa.me/254717162026",
-   iknuvaCode: "IKNUVA-C1-FA9D1D2FA21CEE85D451EF619CBC08E9",
+   iknuvaCode: "IKNUVA-C1-2C99344C165E1A18CD4853A5E02FF01B",
   avatar: "/images/elvis.jpg",
   summary:
     "Software developer passionate about building modern, scalable, user-focused web applications. Earned a Certificate of Completion in Information Communication Technology (Software Development with AI) from Empower Hope (23 February 2026 - 20 June 2026) and consistently goes beyond the curriculum through self-directed learning and real client work - covering full-stack development, AI-assisted workflows, deployment, SEO, and helping businesses establish an effective online presence. Focused on software architecture, user experience, backend systems, and helping businesses grow their digital presence.",
