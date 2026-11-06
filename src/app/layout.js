@@ -83,6 +83,7 @@ export const metadata = {
     locale: "en_US",
     url: "https://elvis-bitolo.vercel.app",
     siteName: "Elvis Bitolo Khanyanga",
+    fb_app_id: "1469312585162369",
 
     title:
       "Elvis Bitolo Khanyanga | Freelance Web Developer in Nairobi, Kenya",
