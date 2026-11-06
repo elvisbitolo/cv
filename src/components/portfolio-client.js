@@ -43,6 +43,16 @@ export function PortfolioClient() {
         <SkillsSection profile={siteProfile} />
         <ResumeSection profile={siteProfile} />
         <ContactSection profile={siteProfile} />
+        <iframe
+          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02wgTE51q548PvgQG5cec8JPqdG771FVStPyxgqP8Tnss1xnHGH62XF7SKi16KUc6ml%26id%3D61592980267547&show_text=true&width=500"
+          width="500"
+          height="841"
+          style="border:none;overflow:hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        />
       </main>
       <SiteFooter />
       <ChatWidget />
