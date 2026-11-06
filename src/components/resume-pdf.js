@@ -219,7 +219,7 @@ export function ResumeDownloadButton({ profile }) {
   return (
     <PDFDownloadLink
       document={<ResumeDocument profile={profile} />}
-      fileName="Elvis-Bitolo-Khanyanga-CV.pdf"
+      fileName="Elvis_Bitolo_Khanyanga_CV_LinkedIn_2026.pdf"
       className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss"
     >
       {({ loading }) => (
