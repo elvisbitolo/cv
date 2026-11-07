@@ -238,12 +238,14 @@
   projects: [
     {
       title: "Christa's Speakeasy",
-      category: "Full Stack Web App",
+      category: "Featured Product · Full-Stack Platform",
       description:
-        "Membership community platform with 24/7 live video lounges, a member Match Maker, an availability calendar and themed interest groups. Includes user accounts, paid subscriptions and a responsive member dashboard.",
-      stack: ["Next.js", "React", "Tailwind CSS", "Authentication", "Subscriptions"],
-      github: "",
-      live: "https://christasspeakeasy.com"
+        "A membership-based online community for Secret Yarnery, bringing together member accounts, tier-based access, profiles, community features, themed groups and live video lounge experiences. Integrated with Shopify membership checkout and deployed on Vercel.",
+      stack: ["Next.js", "JavaScript", "CSS Modules", "Supabase", "PostgreSQL", "Jitsi", "Shopify", "Vercel"],
+      github: "https://github.com/elvisbitolo/yarnerylounge",
+      live: "https://christasspeakeasy.com",
+      caseStudy: "/projects/christas-speakeasy",
+      featured: true
     },
     {
       title: "Better Tomorrow School Website",
