@@ -342,7 +342,7 @@ export function ResumeDownloadButton() {
     <PDFDownloadLink
       document={<ResumeDocument />}
       fileName="Elvis_Bitolo_Resume.pdf"
-      className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss"
+      className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss"
     >
       {({ loading }) => (
         <>
