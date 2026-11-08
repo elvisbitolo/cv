@@ -41,7 +41,7 @@ export function ProjectsSection({ projects }) {
                 {project.caseStudy ? (
                   <a
                     href={project.caseStudy}
-                    className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white hover:bg-moss dark:bg-white dark:text-ink dark:hover:bg-copper dark:hover:text-white"
+                    className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss"
                   >
                     Explore case study
                     <ArrowUpRight size={17} />
@@ -50,7 +50,7 @@ export function ProjectsSection({ projects }) {
                 {project.github ? (
                   <a
                     href={project.github}
-                    className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white hover:bg-moss dark:bg-white dark:text-ink dark:hover:bg-copper dark:hover:text-white"
+                    className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss"
                     target="_blank"
                     rel="noreferrer"
                   >
