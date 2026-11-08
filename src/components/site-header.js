@@ -63,7 +63,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/#resume"
-            className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white hover:bg-moss dark:bg-white dark:text-ink dark:hover:bg-copper dark:hover:text-white"
+            className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss"
           >
             <Download size={17} />
             CV
