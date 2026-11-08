@@ -3,7 +3,7 @@ import Link from "next/link";
 export function ButtonLink({ href, children, variant = "primary", className = "" }) {
   const styles =
     variant === "primary"
-      ? "bg-ink text-white hover:bg-moss dark:bg-white dark:text-ink dark:hover:bg-copper dark:hover:text-white"
+      ? "bg-ink text-white hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss"
       : "border border-ink/15 bg-surface/70 text-ink hover:border-copper hover:text-copper";
 
   return (
