@@ -245,6 +245,8 @@
       github: "https://github.com/elvisbitolo/yarnerylounge",
       live: "https://christasspeakeasy.com",
       caseStudy: "/projects/christas-speakeasy",
+      image: "/images/projects/christas-speakeasy.webp",
+      imageAlt: "Christa's Speakeasy member dashboard",
       featured: true
     },
     {
@@ -254,7 +256,9 @@
         "Multi-page website for a community school in Vumilia Slum, Donholm, Nairobi. Presents programs, a photo gallery, admissions steps, FAQ and ways to volunteer or donate, with WhatsApp contact and an enquiry form.",
       stack: ["Next.js", "React", "Tailwind CSS", "Netlify", "SEO"],
       github: "",
-      live: "https://better-tomorrow-school.netlify.app"
+      live: "https://better-tomorrow-school.netlify.app",
+      image: "/images/projects/better-tomorrow-school.webp",
+      imageAlt: "Better Tomorrow School website homepage"
     },
     {
       title: "Brilliant Angels Academy Website",
@@ -263,7 +267,9 @@
         "Multi-page Next.js website for a community-based school and CBO in Githogoro, Nairobi. Features programs, M-Pesa donation integration, WhatsApp contact, news, gallery, and volunteer/donate pages.",
       stack: ["Next.js", "React", "Firebase", "Vercel", "SEO"],
       github: "",
-      live: "https://brilliant-angel-cbo.vercel.app"
+      live: "https://brilliant-angel-cbo.vercel.app",
+      image: "/images/projects/brilliant-angel-cbo.webp",
+      imageAlt: "Brilliant Angels Academy website homepage"
     },
     {
       title: "Austine Omondi MCA 2027 Campaign Website",
@@ -272,7 +278,9 @@
         "Campaign website for an MCA aspirant in Karura Ward. Features candidate background, manifesto, events, 2027 election countdown, FAQ, gallery, and M-Pesa donation support.",
       stack: ["Next.js", "React", "Tailwind CSS", "M-Pesa", "SEO"],
       github: "",
-      live: "https://austine-omondi.vercel.app"
+      live: "https://austine-omondi.vercel.app",
+      image: "/images/projects/austine-omondi.webp",
+      imageAlt: "Austine Omondi campaign website homepage"
     },
     {
       title: "Githogoro Community App",
@@ -300,6 +308,39 @@
       stack: ["Next.js", "React", "Firebase", "Tailwind CSS"],
       github: "https://github.com/elvisbitolo/cv",
       live: "https://elvis-bitolo.vercel.app"
+    },
+    {
+      title: "Samtech Media Solutions Website",
+      category: "Client Web Project",
+      description:
+        "Agency website presenting web development, SEO, and digital presence services with clear inquiry calls to action.",
+      stack: ["Next.js", "React", "Tailwind CSS", "SEO", "Vercel"],
+      github: "",
+      live: "https://samtechmedia-solutions.vercel.app/",
+      image: "/images/projects/samtech-media-solutions.webp",
+      imageAlt: "Samtech Media Solutions website homepage"
+    },
+    {
+      title: "Samtech Media Portfolio Website",
+      category: "Portfolio Web Project",
+      description:
+        "Responsive portfolio website showcasing profile details, selected projects, services, and contact flows with light and dark themes.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+      github: "",
+      live: "https://samtechmedia.vercel.app",
+      image: "/images/projects/samtech-media-portfolio.webp",
+      imageAlt: "Samtech Media portfolio website homepage"
+    },
+    {
+      title: "Blender 3D Study",
+      category: "Creative Experiment",
+      description:
+        "A personal 3D visual study focused on lighting, composition, and rendering workflow in Blender.",
+      stack: ["Blender", "3D Modeling", "Rendering"],
+      github: "",
+      live: "",
+      image: "/images/projects/elvis-blender.webp",
+      imageAlt: "3D render from a Blender practice project"
     }
   ]
 };

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Database, ShieldCheck, Video, Users, Workflow } from "lucide-react";
 import Reveal from "@/components/reveal";
@@ -103,6 +104,18 @@ export default function ChristasSpeakeasyCaseStudy() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal className="mt-8 overflow-hidden rounded-xl border border-ink/10 bg-[#211923] shadow-soft" delay={140}>
+            <div className="relative aspect-[16/9]">
+              <Image
+                src="/images/projects/christas-speakeasy.webp"
+                alt="Christa's Speakeasy member dashboard"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1100px"
+                className="object-cover object-top"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 

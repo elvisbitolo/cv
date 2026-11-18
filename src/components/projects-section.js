@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import Reveal from "./reveal";
 
@@ -25,29 +26,53 @@ export function ProjectsSection({ projects }) {
               >
                 {project.featured ? (
                   <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-                    <div className="relative flex min-h-64 flex-col justify-between overflow-hidden bg-[#211923] p-7 text-white sm:p-9">
-                      <div className="absolute -right-16 -top-20 h-72 w-72 animate-ring-breathe rounded-full border border-[#d98763]/30" aria-hidden="true" />
-                      <div className="absolute -right-4 -top-8 h-48 w-48 animate-ring-breathe rounded-full border border-[#d98763]/25" style={{ animationDelay: "-3s" }} aria-hidden="true" />
-                      <div className="relative flex items-center justify-between gap-3">
-                        <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#e5a184]">Featured product</span>
-                        <span className="rounded-full border border-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/75">Live platform</span>
-                      </div>
-                      <div className="relative py-8">
-                        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e5a184]">Christa&apos;s</p>
-                        <p className="mt-1 font-serif text-4xl leading-none sm:text-5xl">Speakeasy</p>
-                        <p className="mt-4 max-w-xs text-sm leading-6 text-white/65">A private digital community with memberships, social features and live video experiences.</p>
-                      </div>
-                      <div className="relative flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-white/70">
-                        <span className="border border-white/20 px-2 py-1">Community</span>
-                        <span className="border border-white/20 px-2 py-1">Membership</span>
-                        <span className="border border-white/20 px-2 py-1">Live video</span>
+                    <div className="relative min-h-[19rem] overflow-hidden bg-[#211923] sm:min-h-[22rem] md:min-h-[26rem] lg:min-h-full">
+                      {project.image ? (
+                        <Image
+                          src={project.image}
+                          alt={project.imageAlt || `${project.title} screenshot`}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 45vw"
+                          className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+                        />
+                      ) : null}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#211923] via-[#211923]/35 to-[#211923]/10" aria-hidden="true" />
+                      <div className="absolute inset-0 flex flex-col justify-between p-7 text-white sm:p-9">
+                        <div className="relative flex items-center justify-between gap-3">
+                          <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#e5a184]">Featured product</span>
+                          <span className="rounded-full border border-white/20 bg-black/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/75 backdrop-blur">Live platform</span>
+                        </div>
+                        <div className="relative py-8">
+                          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e5a184]">Christa&apos;s</p>
+                          <p className="mt-1 font-serif text-4xl leading-none sm:text-5xl">Speakeasy</p>
+                          <p className="mt-4 max-w-xs text-sm leading-6 text-white/75">A private digital community with memberships, social features and live video experiences.</p>
+                        </div>
+                        <div className="relative flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-white/75">
+                          <span className="border border-white/20 bg-black/20 px-2 py-1 backdrop-blur">Community</span>
+                          <span className="border border-white/20 bg-black/20 px-2 py-1 backdrop-blur">Membership</span>
+                          <span className="border border-white/20 bg-black/20 px-2 py-1 backdrop-blur">Live video</span>
+                        </div>
                       </div>
                     </div>
 
                     <ProjectDetails project={project} featured />
                   </div>
                 ) : (
-                  <ProjectDetails project={project} />
+                  <div className="flex h-full flex-col">
+                    {project.image ? (
+                      <div className="relative aspect-[16/9] overflow-hidden bg-cloud">
+                        <Image
+                          src={project.image}
+                          alt={project.imageAlt || `${project.title} screenshot`}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
+                          className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/20 via-transparent to-transparent opacity-70" aria-hidden="true" />
+                      </div>
+                    ) : null}
+                    <ProjectDetails project={project} />
+                  </div>
                 )}
               </article>
             </Reveal>
@@ -60,7 +85,7 @@ export function ProjectsSection({ projects }) {
 
 function ProjectDetails({ project, featured = false }) {
   return (
-    <div className={featured ? "p-7 sm:p-9" : "flex h-full flex-col p-6 sm:p-7"}>
+    <div className={featured ? "p-7 sm:p-9" : "flex flex-1 flex-col p-6 sm:p-7"}>
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.17em] text-moss">{project.category}</p>
@@ -76,7 +101,7 @@ function ProjectDetails({ project, featured = false }) {
           <span key={skill} className="rounded-full border border-ink/10 bg-surface px-3 py-1 text-[11px] font-bold text-ink/70">{skill}</span>
         ))}
       </div>
-      <div className="mt-7 flex flex-wrap gap-2">
+      <div className={`flex flex-wrap gap-2 ${featured ? "mt-7" : "mt-auto pt-7"}`}>
         {project.caseStudy ? (
           <a href={project.caseStudy} className="focus-ring inline-flex min-h-10 items-center gap-2 rounded-lg bg-ink px-4 py-2 text-xs font-bold text-white transition hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss">
             Case study <ArrowUpRight size={15} />
