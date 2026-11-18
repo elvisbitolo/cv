@@ -15,7 +15,7 @@
       "template": "Run npm start in the project root"
     },
     "lint": {
-      "description": "Run Next.js lint",
+      "description": "Run ESLint",
       "template": "Run npm run lint in the project root"
     }
   }

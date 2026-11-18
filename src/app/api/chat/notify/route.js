@@ -1,6 +1,8 @@
+import { SITE_URL } from "@/lib/site-url";
+
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const MAX_TEXT_LENGTH = 500;
-const ADMIN_URL = "https://elvis-bitolo.vercel.app/admin";
+const ADMIN_URL = `${SITE_URL}/admin`;
 
 export async function POST(request) {
   let body;
@@ -40,7 +42,7 @@ export async function POST(request) {
         to: [notifyEmail],
         reply_to: notifyEmail,
         subject: "New chat message on your portfolio",
-        text: `A visitor started a chat on elvis-bitolo.vercel.app.\n\nVisitor: ${chatId}\n\n"${text.trim()}"\n\nReply in the admin inbox: ${ADMIN_URL}`
+        text: `A visitor started a chat on ${SITE_URL}.\n\nVisitor: ${chatId}\n\n"${text.trim()}"\n\nReply in the admin inbox: ${ADMIN_URL}`
       })
     });
     if (!response.ok) {

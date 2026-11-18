@@ -221,20 +221,20 @@ export const resume = {
       description:
         "School and community organisation website with programme information, gallery, contact and engagement flows.",
       label: "View live project",
-      url: "https://elvis-bitolo.vercel.app"
+      url: "https://brilliant-angel-cbo.vercel.app"
     },
     {
       name: "Austine Omondi campaign website",
       description:
         "Candidate information, manifesto, events, FAQ, gallery, countdown, and donation-oriented support.",
       label: "View live project",
-      url: "https://elvis-bitolo.vercel.app"
+      url: "https://austine-omondi.vercel.app"
     },
     {
       name: "VID Network and SaaS Launch Kit",
       description: "Additional product and web application work.",
       label: "Explore full project portfolio",
-      url: "https://elvis-bitolo.vercel.app"
+      url: "https://elvis-bitolo.vercel.app/#projects"
     }
   ],
   education: [

@@ -1,9 +1,9 @@
 # Elvis Bitolo Khanyanga — Portfolio & Resume
 
-> Full-stack developer portfolio built with Next.js 14, Firebase, and Tailwind CSS. Includes a downloadable PDF resume, dark mode, SEO, and an admin panel for content.
+> Full-stack developer portfolio built with Next.js 16, Firebase, and Tailwind CSS. Includes a downloadable PDF resume, dark mode, SEO, and an admin panel for content.
 
 [![Live Site](https://img.shields.io/badge/live-elvis--bitolo.vercel.app-2ea44f)](https://elvis-bitolo.vercel.app)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-18-61dafb)](https://react.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3-38bdf8)](https://tailwindcss.com)
 [![Firebase](https://img.shields.io/badge/Firebase-10-ffca28)](https://firebase.google.com)
@@ -19,7 +19,7 @@ Personal portfolio and resume website for **Elvis Bitolo Khanyanga** — a softw
 
 | Layer       | Technologies                                             |
 | ----------- | -------------------------------------------------------- |
-| Framework   | Next.js 14 (App Router), React 18                         |
+| Framework   | Next.js 16 (App Router), React 19                         |
 | Language    | JavaScript (no TypeScript)                                |
 | Styling     | Tailwind CSS 3, custom design tokens                      |
 | Backend     | Firebase (Firestore, client SDK)                          |
@@ -54,7 +54,7 @@ Personal portfolio and resume website for **Elvis Bitolo Khanyanga** — a softw
 
 ### Prerequisites
 
-- Node.js 18.17+ and npm
+- Node.js 20.9+ and npm
 
 ### 1. Install
 
@@ -72,6 +72,8 @@ cp .env.example .env.local
 
 | Variable | Description |
 | -------- | ----------- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL used in metadata, sitemap and notifications |
+| `NEXT_PUBLIC_ENABLE_ADMIN` | Set to `true` to enable the `/admin` inbox |
 | `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase API key |
 | `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Auth domain |
 | `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Project ID |

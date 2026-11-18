@@ -110,7 +110,7 @@ const faqs = [
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `${PAGE_URL}/#service`,
+  "@id": `${PAGE_URL}#service`,
   name: "M-Pesa integration in 48 hours",
   serviceType: "M-Pesa payment integration",
   url: PAGE_URL,

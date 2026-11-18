@@ -37,7 +37,7 @@ export default function ServiceLanding({ page }) {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${pageUrl}/#service`,
+    "@id": `${pageUrl}#service`,
     name: page.metaTitle,
     serviceType: page.serviceType,
     url: pageUrl,

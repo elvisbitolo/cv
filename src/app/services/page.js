@@ -11,11 +11,10 @@ import {
 } from "lucide-react";
 import { profile } from "@/lib/profile-data";
 import { servicePages } from "@/lib/service-pages";
+import { SITE_URL } from "@/lib/site-url";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import ChatWidget from "@/components/chat-widget";
-
-const SITE_URL = "https://elvis-bitolo.vercel.app";
 
 export const metadata = {
   title: "Web Development Services in Nairobi, Kenya",
@@ -171,7 +170,7 @@ const faqs = [
 const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "@id": `${SITE_URL}/services/#service`,
+  "@id": `${SITE_URL}/services#service`,
   name: "Elvis Bitolo Khanyanga — Web Development Services",
   url: `${SITE_URL}/services`,
   image: `${SITE_URL}/images/og-image.jpg`,

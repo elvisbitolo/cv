@@ -1,9 +1,10 @@
 import { servicePages } from "@/lib/service-pages";
+import { SITE_URL } from "@/lib/site-url";
 
 export const dynamic = "force-static";
 
 export function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elvis-bitolo.vercel.app";
+  const siteUrl = SITE_URL;
   const lastmod = new Date().toISOString();
 
   const serviceUrls = servicePages

@@ -1,4 +1,6 @@
-export const SITE_URL = "https://elvis-bitolo.vercel.app";
+import { SITE_URL } from "./site-url";
+
+export { SITE_URL };
 
 /*
  * Long-tail service landing pages.

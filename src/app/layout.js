@@ -1,14 +1,15 @@
 import Script from "next/script";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site-url";
 
 export const metadata = {
-  metadataBase: new URL("https://elvis-bitolo.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   applicationName: "Elvis Bitolo Khanyanga",
 
   authors: [
     {
       name: "Elvis Bitolo Khanyanga",
-      url: "https://elvis-bitolo.vercel.app"
+      url: SITE_URL
     }
   ],
 
@@ -81,7 +82,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://elvis-bitolo.vercel.app",
+    url: SITE_URL,
     siteName: "Elvis Bitolo Khanyanga",
 
     title:
@@ -183,7 +184,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Person",
 
-              "@id": "https://elvis-bitolo.vercel.app/#person",
+              "@id": `${SITE_URL}/#person`,
 
               "name": "Elvis Bitolo Khanyanga",
 
@@ -193,7 +194,7 @@ export default function RootLayout({ children }) {
                */
               "alternateName": ["Elvis Bitolo"],
 
-              "url": "https://elvis-bitolo.vercel.app",
+              "url": SITE_URL,
 
               "jobTitle":
                 "Website Developer & Full-Stack Software Developer",
@@ -205,8 +206,7 @@ export default function RootLayout({ children }) {
 
               "telephone": "+254717162026",
 
-              "image":
-                "https://elvis-bitolo.vercel.app/images/elvis.jpg",
+              "image": `${SITE_URL}/images/elvis.jpg`,
 
               "nationality": {
                 "@type": "Country",
@@ -330,15 +330,15 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "@id": "https://elvis-bitolo.vercel.app/#website",
-              "url": "https://elvis-bitolo.vercel.app",
+              "@id": `${SITE_URL}/#website`,
+              "url": SITE_URL,
               "name": "Elvis Bitolo Khanyanga",
-              "alternateName": ["Elvis Bitolo", "elvis-bitolo.vercel.app"],
+              "alternateName": ["Elvis Bitolo", new URL(SITE_URL).hostname],
               "inLanguage": "en",
               "description":
                 "Portfolio of Elvis Bitolo Khanyanga, a freelance web developer and full-stack software developer based in Nairobi, Kenya.",
               "publisher": {
-                "@id": "https://elvis-bitolo.vercel.app/#person"
+                "@id": `${SITE_URL}/#person`
               }
             })
           }}

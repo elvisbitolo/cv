@@ -10,8 +10,9 @@ export function generateStaticParams() {
   return servicePages.map((page) => ({ slug: page.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const page = getServicePage(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const page = getServicePage(slug);
 
   if (!page) {
     return {};
@@ -53,8 +54,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function ServiceLandingPage({ params }) {
-  const page = getServicePage(params.slug);
+export default async function ServiceLandingPage({ params }) {
+  const { slug } = await params;
+  const page = getServicePage(slug);
 
   if (!page) {
     notFound();

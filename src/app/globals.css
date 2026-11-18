@@ -4,10 +4,10 @@
 
 :root {
   color-scheme: light;
-  --ink: #17191b;
-  --paper: #f5f2ec;
-  --cloud: #e8e5de;
-  --surface: #fffdf9;
+  --ink: 23 25 27;
+  --paper: 245 242 236;
+  --cloud: 232 229 222;
+  --surface: 255 253 249;
   --copper: #a94f31;
   --moss: #526b58;
   --line: rgba(23, 25, 27, 0.12);
@@ -15,10 +15,10 @@
 
 .dark {
   color-scheme: dark;
-  --ink: #eeeae3;
-  --paper: #111416;
-  --cloud: #242a2c;
-  --surface: #191e20;
+  --ink: 238 234 227;
+  --paper: 17 20 22;
+  --cloud: 36 42 44;
+  --surface: 25 30 32;
   --copper: #d98763;
   --moss: #829b83;
   --line: rgba(238, 234, 227, 0.14);
@@ -33,8 +33,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

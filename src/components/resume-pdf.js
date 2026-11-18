@@ -12,6 +12,73 @@ import {
 import { Download } from "lucide-react";
 import { resume } from "@/lib/resume-data";
 
+function buildResumeData(profile) {
+  if (!profile) return resume;
+
+  const socialLinks = Array.isArray(profile.socialLinks) ? profile.socialLinks : [];
+  const socialLink = (label) =>
+    socialLinks.find((item) => item.label?.toLowerCase() === label)?.href;
+
+  const education = [
+    ...(profile.education || []).map((item) => ({
+      title: item.title,
+      issuer: item.institution || item.issuer || "",
+      period: item.period || ""
+    })),
+    ...(profile.certifications || []).map((item) => ({
+      title: item.title,
+      issuer: item.issuer || "",
+      period: item.period || item.year || ""
+    }))
+  ];
+
+  return {
+    ...resume,
+    name: profile.name || resume.name,
+    role: profile.role || resume.role,
+    summary: profile.summary || resume.summary,
+    contact: {
+      ...resume.contact,
+      location: profile.location || resume.contact.location,
+      phone: profile.phone || resume.contact.phone,
+      email: profile.email || resume.contact.email,
+      github: socialLink("github") || resume.contact.github,
+      linkedin: socialLink("linkedin") || resume.contact.linkedin,
+      medium: socialLink("medium") || resume.contact.medium
+    },
+    technicalSkills: profile.skillGroups?.length
+      ? profile.skillGroups.map((group) => ({
+          area: group.title,
+          skills: (group.items || []).join(", ")
+        }))
+      : resume.technicalSkills,
+    experience: profile.experience?.length
+      ? profile.experience.map((job) => ({
+          ...job,
+          location: job.location || profile.location || resume.contact.location
+        }))
+      : resume.experience,
+    projects: profile.projects?.length
+      ? profile.projects.map((project) => ({
+          title: project.title,
+          subtitle: project.category || "",
+          description: project.description || "",
+          technologies: Array.isArray(project.stack)
+            ? project.stack.join(", ")
+            : project.stack || "",
+          links: [
+            project.github ? { label: "Source", url: project.github } : null,
+            project.live ? { label: "Live", url: project.live } : null
+          ].filter(Boolean)
+        }))
+      : resume.projects,
+    education: education.length ? education : resume.education,
+    strengths: profile.competencies?.length
+      ? profile.competencies.flatMap((group) => group.items || [])
+      : resume.strengths
+  };
+}
+
 const styles = StyleSheet.create({
   page: {
     paddingTop: 34,
@@ -153,8 +220,8 @@ function Footer() {
   );
 }
 
-function ContactBlock() {
-  const { contact } = resume;
+function ContactBlock({ data }) {
+  const { contact } = data;
 
   return (
     <View style={styles.contactRow}>
@@ -198,12 +265,12 @@ function ContactBlock() {
   );
 }
 
-function Header() {
+function Header({ data }) {
   return (
     <View>
-      <Text style={styles.name}>{resume.name}</Text>
-      <Text style={styles.role}>{resume.role}</Text>
-      <ContactBlock />
+      <Text style={styles.name}>{data.name}</Text>
+      <Text style={styles.role}>{data.role}</Text>
+      <ContactBlock data={data} />
     </View>
   );
 }
@@ -230,20 +297,22 @@ function ProjectItem({ project, index }) {
   );
 }
 
-function ResumeDocument() {
+function ResumeDocument({ profile }) {
+  const data = buildResumeData(profile);
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        <Header />
+        <Header data={data} />
 
         <View style={styles.section}>
           <Text style={styles.heading}>Professional Summary</Text>
-          <Text style={styles.body}>{resume.summary}</Text>
+          <Text style={styles.body}>{data.summary}</Text>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.heading}>Technical Skills</Text>
-          {resume.technicalSkills.map((group) => (
+          {data.technicalSkills.map((group) => (
             <View key={group.area} style={styles.skillRow}>
               <Text style={styles.skillArea}>{group.area}</Text>
               <Text style={styles.skillList}>{group.skills}</Text>
@@ -253,7 +322,7 @@ function ResumeDocument() {
 
         <View style={styles.section}>
           <Text style={styles.heading}>Professional Experience</Text>
-          {resume.experience.map((job) => (
+          {data.experience.map((job) => (
             <View key={`${job.role}-${job.company}`} style={styles.item}>
               <Text style={styles.itemTitle}>
                 {job.role} | {job.company}
@@ -281,7 +350,7 @@ function ResumeDocument() {
           work. Source-code links open the corresponding GitHub repositories;
           live-demo links are included where available.
         </Text>
-        {resume.projects.slice(0, 5).map((project, index) => (
+        {data.projects.slice(0, 5).map((project, index) => (
           <ProjectItem
             key={project.title}
             project={project}
@@ -293,7 +362,7 @@ function ResumeDocument() {
 
       <Page size="A4" style={styles.page}>
         <Text style={styles.heading}>Project Portfolio — Continued</Text>
-        {resume.projects.slice(5).map((project, index) => (
+        {data.projects.slice(5).map((project, index) => (
           <ProjectItem
             key={project.title}
             project={project}
@@ -303,7 +372,7 @@ function ResumeDocument() {
 
         <View style={styles.section}>
           <Text style={styles.heading}>Additional Client & Portfolio Work</Text>
-          {resume.additionalWork.map((work) => (
+          {data.additionalWork.map((work) => (
             <View key={work.name} style={styles.item} wrap={false}>
               <Text style={styles.itemTitle}>{work.name}</Text>
               <Text style={styles.body}>{work.description}</Text>
@@ -316,7 +385,7 @@ function ResumeDocument() {
 
         <View style={styles.section}>
           <Text style={styles.heading}>Education & Certifications</Text>
-          {resume.education.map((item) => (
+          {data.education.map((item) => (
             <View key={item.title} style={styles.item} wrap={false}>
               <Text style={styles.itemTitle}>{item.title}</Text>
               <Text style={styles.meta}>
@@ -328,7 +397,7 @@ function ResumeDocument() {
 
         <View style={styles.section}>
           <Text style={styles.heading}>Professional Strengths</Text>
-          <Text style={styles.body}>{resume.strengths.join(" • ")}</Text>
+          <Text style={styles.body}>{data.strengths.join(" • ")}</Text>
         </View>
 
         <Footer />
@@ -337,11 +406,11 @@ function ResumeDocument() {
   );
 }
 
-export function ResumeDownloadButton() {
+export function ResumeDownloadButton({ profile }) {
   return (
     <PDFDownloadLink
-      document={<ResumeDocument />}
-      fileName="Elvis_Bitolo_Resume.pdf"
+      document={<ResumeDocument profile={profile} />}
+      fileName="Elvis_Bitolo_Khanyanga_CV_LinkedIn_2026.pdf"
       className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss"
     >
       {({ loading }) => (
