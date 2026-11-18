@@ -1,6 +1,7 @@
 import Script from "next/script";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site-url";
+import ScrollProgress from "@/components/scroll-progress";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -360,6 +361,13 @@ export default function RootLayout({ children }) {
                 ) {
                   document.documentElement.classList.add("dark");
                 }
+
+                if (
+                  !matchMedia("(prefers-reduced-motion: reduce)").matches &&
+                  "IntersectionObserver" in window
+                ) {
+                  document.documentElement.classList.add("js-motion");
+                }
               } catch(e) {}
             `.replace(/\s+/g, " ")
           }}
@@ -367,7 +375,10 @@ export default function RootLayout({ children }) {
 
       </head>
 
-      <body>{children}</body>
+      <body>
+        <ScrollProgress />
+        {children}
+      </body>
     </html>
   );
 }

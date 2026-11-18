@@ -8,8 +8,8 @@
   --paper: 245 242 236;
   --cloud: 232 229 222;
   --surface: 255 253 249;
-  --copper: #a94f31;
-  --moss: #526b58;
+  --copper: 169 79 49;
+  --moss: 82 107 88;
   --line: rgba(23, 25, 27, 0.12);
 }
 
@@ -19,8 +19,8 @@
   --paper: 17 20 22;
   --cloud: 36 42 44;
   --surface: 25 30 32;
-  --copper: #d98763;
-  --moss: #829b83;
+  --copper: 217 135 99;
+  --moss: 130 155 131;
   --line: rgba(238, 234, 227, 0.14);
 }
 
@@ -43,7 +43,7 @@ body {
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font: inherit; }
 
-::selection { background: var(--copper); color: #fff; }
+::selection { background: rgb(var(--copper)); color: #fff; }
 
 .noise {
   background-image:
@@ -66,10 +66,71 @@ button, input, textarea { font: inherit; }
 }
 
 .focus-ring { outline: 2px solid transparent; outline-offset: 3px; }
-.focus-ring:focus-visible { outline-color: var(--copper); }
+.focus-ring:focus-visible { outline-color: rgb(var(--copper)); }
 
 ::placeholder { color: rgba(23, 25, 27, 0.48); }
 .dark ::placeholder { color: rgba(238, 234, 227, 0.48); }
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 2px;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgb(var(--moss)), rgb(var(--copper)));
+  transition: transform 120ms linear;
+}
+
+.hero-ambient {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+}
+
+.dark .hero-ambient { opacity: 0.28; }
+
+.hero-ambient-one {
+  width: 22rem;
+  height: 22rem;
+  top: -7rem;
+  right: -5rem;
+  background: rgb(var(--copper) / 0.24);
+}
+
+.hero-ambient-two {
+  width: 18rem;
+  height: 18rem;
+  bottom: -8rem;
+  left: 6%;
+  background: rgb(var(--moss) / 0.22);
+}
+
+.js-motion .reveal {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.js-motion .reveal[data-reveal-visible="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
 
 @media (max-width: 640px) {
   .section-shell { width: min(100% - 32px, 1160px); }
@@ -80,7 +141,14 @@ button, input, textarea { font: inherit; }
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .js-motion .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

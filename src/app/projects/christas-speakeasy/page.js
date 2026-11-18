@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Database, ShieldCheck, Video, Users, Workflow } from "lucide-react";
+import Reveal from "@/components/reveal";
 
 export const metadata = {
   title: "Christa's Speakeasy — Full-Stack Case Study",
@@ -55,11 +56,11 @@ export default function ChristasSpeakeasyCaseStudy() {
             Back to selected work
           </Link>
 
-          <div className="mt-10 max-w-4xl">
+          <Reveal className="mt-10 max-w-4xl">
             <p className="text-xs font-black uppercase tracking-[0.2em] text-copper">
               Featured case study · Full-stack product
             </p>
-            <h1 className="mt-4 text-4xl font-black leading-tight sm:text-6xl">
+            <h1 className="mt-4 text-balance text-4xl font-black leading-tight sm:text-6xl">
               Christa&apos;s Speakeasy
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-ink/70 sm:text-xl">
@@ -90,14 +91,16 @@ export default function ChristasSpeakeasyCaseStudy() {
               journey. Access to member-only application areas may require an
               account and an active membership.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            {architecture.map(([label, value]) => (
-              <div key={label} className="rounded-md border border-ink/10 bg-surface/80 p-4">
-                <p className="text-[10px] font-black uppercase tracking-wider text-copper">{label}</p>
-                <p className="mt-2 text-sm font-semibold leading-6 text-ink/75">{value}</p>
-              </div>
+            {architecture.map(([label, value], index) => (
+              <Reveal key={label} delay={index * 70}>
+                <div className="h-full rounded-md border border-ink/10 bg-surface/80 p-4">
+                  <p className="text-[10px] font-black uppercase tracking-wider text-copper">{label}</p>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-ink/75">{value}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -126,14 +129,16 @@ export default function ChristasSpeakeasyCaseStudy() {
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2">
-          {capabilities.map(({ icon: Icon, title, description }) => (
-            <article key={title} className="rounded-md border border-ink/10 bg-surface p-6 sm:p-7">
-              <div className="inline-flex rounded-md bg-copper/10 p-3 text-copper">
-                <Icon size={22} />
-              </div>
-              <h3 className="mt-5 text-xl font-black">{title}</h3>
-              <p className="mt-3 leading-7 text-ink/68">{description}</p>
-            </article>
+          {capabilities.map(({ icon: Icon, title, description }, index) => (
+            <Reveal key={title} delay={index * 80}>
+              <article className="h-full rounded-md border border-ink/10 bg-surface p-6 transition duration-300 hover:-translate-y-1 hover:shadow-soft sm:p-7">
+                <div className="inline-flex rounded-md bg-copper/10 p-3 text-copper">
+                  <Icon size={22} />
+                </div>
+                <h3 className="mt-5 text-xl font-black">{title}</h3>
+                <p className="mt-3 leading-7 text-ink/68">{description}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -171,6 +176,7 @@ export default function ChristasSpeakeasyCaseStudy() {
       </section>
 
       <section className="section-shell py-16 text-center sm:py-20">
+        <Reveal>
         <p className="text-xs font-black uppercase tracking-[0.2em] text-copper">Next step</p>
         <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-black sm:text-4xl">
           Have a product or business workflow to build?
@@ -185,6 +191,7 @@ export default function ChristasSpeakeasyCaseStudy() {
         >
           Discuss a project <ArrowUpRight size={17} />
         </Link>
+        </Reveal>
       </section>
     </main>
   );

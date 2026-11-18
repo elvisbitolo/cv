@@ -107,7 +107,7 @@ export default function ChatWidget() {
 
   const panel = open ? (
     <div
-      className="fixed bottom-24 right-4 z-50 flex h-[26rem] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-md border border-ink/10 bg-surface shadow-soft"
+      className="animate-scale-in fixed bottom-24 right-4 z-50 flex h-[26rem] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-md border border-ink/10 bg-surface shadow-soft"
       role="dialog"
       aria-label="Chat with Elvis"
     >
@@ -131,7 +131,7 @@ export default function ChatWidget() {
       </div>
 
       <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
-        <div className="max-w-[85%] rounded-md rounded-tl-none bg-white px-3 py-2 text-sm leading-6 shadow-sm">
+        <div className="animate-fade-in max-w-[85%] rounded-md rounded-tl-none bg-white px-3 py-2 text-sm leading-6 shadow-sm">
           Hi! I&apos;m Elvis, a full-stack developer in Nairobi. Ask me about web projects,
           availability, or anything else.
         </div>
@@ -147,7 +147,7 @@ export default function ChatWidget() {
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`max-w-[85%] rounded-md px-3 py-2 text-sm leading-6 shadow-sm ${
+            className={`animate-fade-in max-w-[85%] rounded-md px-3 py-2 text-sm leading-6 shadow-sm ${
               message.sender === "visitor"
                 ? "ml-auto rounded-tr-none bg-moss text-white"
                 : "rounded-tl-none bg-white"
@@ -210,7 +210,7 @@ export default function ChatWidget() {
       >
         {open ? <X size={22} /> : <MessageCircle size={22} />}
         {!open && visitorUnread > 0 ? (
-          <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-copper text-[10px] font-black text-white">
+          <span className="absolute -right-1 -top-1 flex h-5 w-5 animate-pulse-soft items-center justify-center rounded-full bg-copper text-[10px] font-black text-white">
             {visitorUnread > 9 ? "9+" : visitorUnread}
           </span>
         ) : null}

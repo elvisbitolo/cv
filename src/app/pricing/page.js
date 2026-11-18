@@ -6,6 +6,7 @@ import ChatWidget from "@/components/chat-widget";
 import LeadForm from "@/components/lead-form";
 import { packages, pricingFaqs } from "@/lib/packages";
 import { SITE_URL } from "@/lib/service-pages";
+import Reveal from "@/components/reveal";
 
 export const metadata = {
   title: "Website Packages & Pricing in Kenya",
@@ -73,11 +74,11 @@ export default function PricingPage() {
 
       <main>
         <section className="border-b border-ink/10 bg-paper py-20">
-          <div className="section-shell max-w-3xl">
+          <Reveal className="section-shell max-w-3xl">
             <p className="text-sm font-black uppercase tracking-wide text-copper">
               Pricing
             </p>
-            <h1 className="mt-3 text-4xl font-black text-ink sm:text-5xl">
+            <h1 className="mt-3 text-balance text-4xl font-black text-ink sm:text-5xl">
               Websites and web apps with clear prices
             </h1>
             <p className="mt-5 leading-7 text-ink/68">
@@ -101,17 +102,17 @@ export default function PricingPage() {
                 See past work
               </Link>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         <section className="border-b border-ink/10 bg-surface py-20">
           <div className="section-shell">
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {packages.map((item) => (
+              {packages.map((item, index) => (
+                <Reveal key={item.slug} delay={index * 90}>
                 <article
-                  key={item.slug}
                   id={item.slug}
-                  className={`flex flex-col rounded-md border bg-paper p-6 ${
+                  className={`flex h-full flex-col rounded-md border bg-paper p-6 transition duration-300 hover:-translate-y-1 hover:shadow-soft ${
                     item.highlight
                       ? "border-copper/60 shadow-soft"
                       : "border-ink/10"
@@ -166,6 +167,7 @@ export default function PricingPage() {
                     <ArrowRight size={16} />
                   </Link>
                 </article>
+                </Reveal>
               ))}
             </div>
           </div>

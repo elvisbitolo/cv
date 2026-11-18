@@ -15,6 +15,7 @@ import { SITE_URL } from "@/lib/site-url";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import ChatWidget from "@/components/chat-widget";
+import Reveal from "@/components/reveal";
 
 export const metadata = {
   title: "Web Development Services in Nairobi, Kenya",
@@ -220,11 +221,11 @@ export default function ServicesPage() {
 
       <main>
         <section className="border-b border-ink/10 bg-paper py-20">
-          <div className="section-shell max-w-3xl">
+          <Reveal className="section-shell max-w-3xl">
             <p className="text-sm font-black uppercase tracking-wide text-copper">
               Services
             </p>
-            <h1 className="mt-3 text-4xl font-black text-ink sm:text-5xl">
+            <h1 className="mt-3 text-balance text-4xl font-black text-ink sm:text-5xl">
               Web development services in Nairobi, Kenya
             </h1>
             <p className="mt-5 leading-7 text-ink/68">
@@ -248,7 +249,7 @@ export default function ServicesPage() {
                 See past work
               </Link>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         <section className="border-b border-ink/10 bg-surface py-20">
@@ -261,23 +262,22 @@ export default function ServicesPage() {
             </h2>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
-              {profile.services.map((service) => {
+              {profile.services.map((service, index) => {
                 const Icon = serviceIcons[service.icon] || Code2;
                 return (
-                  <article
-                    key={service.title}
-                    className="rounded-md border border-ink/10 bg-paper p-6"
-                  >
-                    <div className="mb-4 rounded-md bg-moss/10 p-2 text-moss">
-                      <Icon size={21} />
-                    </div>
-                    <h3 className="text-xl font-black text-ink">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-ink/68">
-                      {service.description}
-                    </p>
-                  </article>
+                  <Reveal key={service.title} delay={index * 90}>
+                    <article className="h-full rounded-md border border-ink/10 bg-paper p-6 transition duration-300 hover:-translate-y-1 hover:border-copper/40 hover:shadow-soft">
+                      <div className="mb-4 rounded-md bg-moss/10 p-2 text-moss">
+                        <Icon size={21} />
+                      </div>
+                      <h3 className="text-xl font-black text-ink">
+                        {service.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-ink/68">
+                        {service.description}
+                      </p>
+                    </article>
+                  </Reveal>
                 );
               })}
             </div>
@@ -294,13 +294,11 @@ export default function ServicesPage() {
             </h2>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-2">
-              {offerings.map((offering) => {
+              {offerings.map((offering, index) => {
                 const Icon = offering.icon;
                 return (
-                  <article
-                    key={offering.title}
-                    className="rounded-md border border-ink/10 bg-surface p-6"
-                  >
+                  <Reveal key={offering.title} delay={index * 80}>
+                  <article className="h-full rounded-md border border-ink/10 bg-surface p-6 transition duration-300 hover:-translate-y-1 hover:shadow-soft">
                     <div className="mb-4 flex items-center gap-3">
                       <div className="rounded-md bg-moss/10 p-2 text-moss">
                         <Icon size={21} />
@@ -327,6 +325,7 @@ export default function ServicesPage() {
                       ))}
                     </ul>
                   </article>
+                  </Reveal>
                 );
               })}
             </div>

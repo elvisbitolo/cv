@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import ChatWidget from "@/components/chat-widget";
+import Reveal from "@/components/reveal";
 import { SITE_URL, getRelatedServicePages } from "@/lib/service-pages";
 
 export default function ServiceLanding({ page }) {
@@ -87,11 +88,11 @@ export default function ServiceLanding({ page }) {
         </nav>
 
         <section className="border-b border-ink/10 bg-paper py-20">
-          <div className="section-shell max-w-3xl">
+          <Reveal className="section-shell max-w-3xl">
             <p className="text-sm font-black uppercase tracking-wide text-copper">
               {page.eyebrow}
             </p>
-            <h1 className="mt-3 text-4xl font-black text-ink sm:text-5xl">
+            <h1 className="mt-3 text-balance text-4xl font-black text-ink sm:text-5xl">
               {page.h1}
             </h1>
             <p className="mt-5 leading-7 text-ink/68">{page.intro}</p>
@@ -110,20 +111,19 @@ export default function ServiceLanding({ page }) {
                 See past work
               </Link>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         <section className="border-b border-ink/10 bg-surface py-16">
           <div className="section-shell">
             <div className="grid gap-4 sm:grid-cols-2">
-              {page.highlights.map((highlight) => (
-                <div
-                  key={highlight}
-                  className="flex items-start gap-3 rounded-md border border-ink/10 bg-paper p-5 text-sm text-ink/80"
-                >
-                  <Check size={17} className="mt-0.5 shrink-0 text-moss" />
-                  {highlight}
-                </div>
+              {page.highlights.map((highlight, index) => (
+                <Reveal key={highlight} delay={index * 70}>
+                  <div className="flex h-full items-start gap-3 rounded-md border border-ink/10 bg-paper p-5 text-sm text-ink/80 transition duration-300 hover:-translate-y-0.5 hover:shadow-soft">
+                    <Check size={17} className="mt-0.5 shrink-0 text-moss" />
+                    {highlight}
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -132,8 +132,9 @@ export default function ServiceLanding({ page }) {
         <section className="border-b border-ink/10 bg-paper py-20">
           <div className="section-shell max-w-4xl">
             <div className="grid gap-10">
-              {page.sections.map((section) => (
-                <article key={section.heading}>
+              {page.sections.map((section, index) => (
+                <Reveal key={section.heading} delay={index * 90}>
+                <article>
                   <h2 className="text-2xl font-black text-ink sm:text-3xl">
                     {section.heading}
                   </h2>
@@ -157,6 +158,7 @@ export default function ServiceLanding({ page }) {
                     </ul>
                   ) : null}
                 </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -168,18 +170,17 @@ export default function ServiceLanding({ page }) {
               Frequently asked questions
             </h2>
             <div className="mt-8 grid gap-4">
-              {page.faqs.map((faq) => (
-                <article
-                  key={faq.question}
-                  className="rounded-md border border-ink/10 bg-paper p-6"
-                >
-                  <h3 className="text-lg font-black text-ink">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-ink/68">
-                    {faq.answer}
-                  </p>
-                </article>
+              {page.faqs.map((faq, index) => (
+                <Reveal key={faq.question} delay={index * 70}>
+                  <article className="rounded-md border border-ink/10 bg-paper p-6 transition duration-300 hover:-translate-y-0.5 hover:shadow-soft">
+                    <h3 className="text-lg font-black text-ink">
+                      {faq.question}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-ink/68">
+                      {faq.answer}
+                    </p>
+                  </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -192,26 +193,27 @@ export default function ServiceLanding({ page }) {
                 Related services
               </h2>
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                {related.map((item) => (
-                  <Link
-                    key={item.slug}
-                    href={`/services/${item.slug}`}
-                    className="focus-ring group rounded-md border border-ink/10 bg-surface p-6 hover:border-moss"
-                  >
-                    <p className="text-sm font-black uppercase tracking-wide text-copper">
-                      {item.eyebrow}
-                    </p>
-                    <h3 className="mt-2 text-lg font-black text-ink">
-                      {item.label}
-                    </h3>
-                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-moss">
-                      Learn more
-                      <ArrowRight
-                        size={15}
-                        className="transition-transform group-hover:translate-x-0.5"
-                      />
-                    </span>
-                  </Link>
+                {related.map((item, index) => (
+                  <Reveal key={item.slug} delay={index * 80}>
+                    <Link
+                      href={`/services/${item.slug}`}
+                      className="focus-ring group block h-full rounded-md border border-ink/10 bg-surface p-6 transition duration-300 hover:-translate-y-1 hover:border-moss hover:shadow-soft"
+                    >
+                      <p className="text-sm font-black uppercase tracking-wide text-copper">
+                        {item.eyebrow}
+                      </p>
+                      <h3 className="mt-2 text-lg font-black text-ink">
+                        {item.label}
+                      </h3>
+                      <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-moss">
+                        Learn more
+                        <ArrowRight
+                          size={15}
+                          className="transition-transform group-hover:translate-x-1"
+                        />
+                      </span>
+                    </Link>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -219,8 +221,8 @@ export default function ServiceLanding({ page }) {
         ) : null}
 
         <section className="bg-surface py-20">
-          <div className="section-shell max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-ink sm:text-4xl">
+          <Reveal className="section-shell max-w-3xl text-center">
+            <h2 className="text-balance text-3xl font-black text-ink sm:text-4xl">
               Have a project in mind?
             </h2>
             <p className="mt-4 leading-7 text-ink/68">
@@ -236,7 +238,7 @@ export default function ServiceLanding({ page }) {
                 <ArrowRight size={17} />
               </Link>
             </div>
-          </div>
+          </Reveal>
         </section>
       </main>
 

@@ -1,50 +1,56 @@
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
+import Reveal from "./reveal";
 
 export function ProjectsSection({ projects }) {
   return (
     <section id="projects" className="border-b border-ink/10 bg-surface py-20 sm:py-24">
       <div className="section-shell">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="text-xs font-black uppercase tracking-[0.2em] text-copper">02 / Selected work</p>
-          <h2 className="mt-3 text-3xl font-black leading-tight text-ink sm:text-4xl">Products built to solve real problems.</h2>
+          <h2 className="mt-3 text-balance text-3xl font-black leading-tight text-ink sm:text-4xl">Products built to solve real problems.</h2>
           <p className="mt-4 leading-7 text-ink/65">
             A selection of client work, full-stack applications, and infrastructure projects. Each one is an opportunity to turn a practical need into a working product.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {projects.map((project) => (
-            <article
+          {projects.map((project, index) => (
+            <Reveal
               key={project.title}
-              className={`group overflow-hidden rounded-2xl border bg-paper transition duration-300 hover:-translate-y-1 hover:shadow-soft ${project.featured ? "border-copper/40 md:col-span-2" : "border-ink/10"}`}
+              className={project.featured ? "md:col-span-2" : ""}
+              delay={index * 100}
             >
-              {project.featured ? (
-                <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-                  <div className="relative flex min-h-64 flex-col justify-between overflow-hidden bg-[#211923] p-7 text-white sm:p-9">
-                    <div className="absolute -right-16 -top-20 h-72 w-72 rounded-full border border-[#d98763]/30" />
-                    <div className="absolute -right-4 -top-8 h-48 w-48 rounded-full border border-[#d98763]/25" />
-                    <div className="relative flex items-center justify-between gap-3">
-                      <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#e5a184]">Featured product</span>
-                      <span className="rounded-full border border-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/75">Live platform</span>
+              <article
+                className={`group h-full overflow-hidden rounded-2xl border bg-paper transition duration-300 hover:-translate-y-1 hover:shadow-soft ${project.featured ? "border-copper/40" : "border-ink/10"}`}
+              >
+                {project.featured ? (
+                  <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+                    <div className="relative flex min-h-64 flex-col justify-between overflow-hidden bg-[#211923] p-7 text-white sm:p-9">
+                      <div className="absolute -right-16 -top-20 h-72 w-72 animate-ring-breathe rounded-full border border-[#d98763]/30" aria-hidden="true" />
+                      <div className="absolute -right-4 -top-8 h-48 w-48 animate-ring-breathe rounded-full border border-[#d98763]/25" style={{ animationDelay: "-3s" }} aria-hidden="true" />
+                      <div className="relative flex items-center justify-between gap-3">
+                        <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#e5a184]">Featured product</span>
+                        <span className="rounded-full border border-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/75">Live platform</span>
+                      </div>
+                      <div className="relative py-8">
+                        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e5a184]">Christa&apos;s</p>
+                        <p className="mt-1 font-serif text-4xl leading-none sm:text-5xl">Speakeasy</p>
+                        <p className="mt-4 max-w-xs text-sm leading-6 text-white/65">A private digital community with memberships, social features and live video experiences.</p>
+                      </div>
+                      <div className="relative flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-white/70">
+                        <span className="border border-white/20 px-2 py-1">Community</span>
+                        <span className="border border-white/20 px-2 py-1">Membership</span>
+                        <span className="border border-white/20 px-2 py-1">Live video</span>
+                      </div>
                     </div>
-                    <div className="relative py-8">
-                      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e5a184]">Christa&apos;s</p>
-                      <p className="mt-1 font-serif text-4xl leading-none sm:text-5xl">Speakeasy</p>
-                      <p className="mt-4 max-w-xs text-sm leading-6 text-white/65">A private digital community with memberships, social features and live video experiences.</p>
-                    </div>
-                    <div className="relative flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-white/70">
-                      <span className="border border-white/20 px-2 py-1">Community</span>
-                      <span className="border border-white/20 px-2 py-1">Membership</span>
-                      <span className="border border-white/20 px-2 py-1">Live video</span>
-                    </div>
-                  </div>
 
-                  <ProjectDetails project={project} featured />
-                </div>
-              ) : (
-                <ProjectDetails project={project} />
-              )}
-            </article>
+                    <ProjectDetails project={project} featured />
+                  </div>
+                ) : (
+                  <ProjectDetails project={project} />
+                )}
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
