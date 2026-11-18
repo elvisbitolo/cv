@@ -85,10 +85,16 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/#resume"
-            className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss"
+            aria-label="Download CV"
+            className="focus-ring rounded-md p-2 text-ink/70 hover:text-ink"
           >
-            <Download size={17} />
-            CV
+            <Download size={18} />
+          </Link>
+          <Link
+            href="/#contact"
+            className="focus-ring inline-flex items-center rounded-full bg-ink px-4 py-2 text-sm font-bold text-white transition hover:bg-moss dark:bg-copper dark:text-white dark:hover:bg-moss"
+          >
+            Get a quote
           </Link>
         </nav>
         <div className="flex items-center gap-2 md:hidden">
@@ -120,6 +126,13 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/#contact"
+            onClick={() => setOpen(false)}
+            className="focus-ring mt-2 inline-flex items-center justify-center rounded-full bg-ink px-4 py-3 text-sm font-bold text-white dark:bg-copper dark:text-white"
+          >
+            Get a quote
+          </Link>
         </div>
       ) : null}
     </header>

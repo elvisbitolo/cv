@@ -1,6 +1,9 @@
+import Link from "next/link";
 import Script from "next/script";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site-url";
+import { profile } from "@/lib/profile-data";
 import ScrollProgress from "@/components/scroll-progress";
 
 export const metadata = {
@@ -378,6 +381,26 @@ export default function RootLayout({ children }) {
       <body>
         <ScrollProgress />
         {children}
+        <div className="no-print fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-paper/95 p-3 backdrop-blur md:hidden">
+          <div className="flex items-center gap-2">
+            <a
+              href={profile.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="focus-ring inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 text-sm font-bold text-white"
+            >
+              <MessageCircle size={17} />
+              WhatsApp
+            </a>
+            <Link
+              href="/#contact"
+              className="focus-ring inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-ink px-4 text-sm font-bold text-white dark:bg-copper dark:text-white"
+            >
+              Get a quote
+              <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
       </body>
     </html>
   );

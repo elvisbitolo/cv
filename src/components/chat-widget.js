@@ -107,7 +107,7 @@ export default function ChatWidget() {
 
   const panel = open ? (
     <div
-      className="animate-scale-in fixed bottom-24 right-4 z-50 flex h-[26rem] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-md border border-ink/10 bg-surface shadow-soft"
+      className="animate-scale-in fixed bottom-40 right-4 z-50 flex h-[26rem] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-md border border-ink/10 bg-surface shadow-soft md:bottom-24"
       role="dialog"
       aria-label="Chat with Elvis"
     >
@@ -206,7 +206,7 @@ export default function ChatWidget() {
         type="button"
         onClick={() => setOpen((current) => !current)}
         aria-label={open ? "Close chat" : "Chat with Elvis"}
-        className="focus-ring no-print fixed bottom-6 right-4 z-50 rounded-full bg-ink p-4 text-white shadow-soft hover:bg-moss"
+        className="focus-ring no-print fixed bottom-24 right-4 z-50 rounded-full bg-ink p-4 text-white shadow-soft hover:bg-moss md:bottom-6"
       >
         {open ? <X size={22} /> : <MessageCircle size={22} />}
         {!open && visitorUnread > 0 ? (

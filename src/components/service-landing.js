@@ -9,6 +9,7 @@ import { SITE_URL, getRelatedServicePages } from "@/lib/service-pages";
 export default function ServiceLanding({ page }) {
   const related = getRelatedServicePages(page.slug);
   const pageUrl = `${SITE_URL}/services/${page.slug}`;
+  const serviceTypeText = page.serviceType.charAt(0).toLowerCase() + page.serviceType.slice(1);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -101,7 +102,7 @@ export default function ServiceLanding({ page }) {
                 href="/#contact"
                 className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-moss dark:bg-white dark:text-ink dark:hover:bg-copper dark:hover:text-white"
               >
-                Get a free quote
+                Get a quote for {serviceTypeText}
                 <ArrowRight size={17} />
               </Link>
               <Link
@@ -111,6 +112,13 @@ export default function ServiceLanding({ page }) {
                 See past work
               </Link>
             </div>
+            <Link
+              href="/pricing"
+              className="focus-ring mt-4 inline-flex items-center gap-1 rounded-md text-sm font-semibold text-ink/60 hover:text-copper"
+            >
+              See fixed-price packages
+              <ArrowRight size={14} />
+            </Link>
           </Reveal>
         </section>
 
@@ -223,7 +231,7 @@ export default function ServiceLanding({ page }) {
         <section className="bg-surface py-20">
           <Reveal className="section-shell max-w-3xl text-center">
             <h2 className="text-balance text-3xl font-black text-ink sm:text-4xl">
-              Have a project in mind?
+              Have a {serviceTypeText} project?
             </h2>
             <p className="mt-4 leading-7 text-ink/68">
               Tell me what you need — you will get an honest answer about what
@@ -234,7 +242,7 @@ export default function ServiceLanding({ page }) {
                 href="/#contact"
                 className="focus-ring inline-flex items-center gap-2 rounded-md bg-ink px-6 py-3 text-sm font-semibold text-white hover:bg-moss dark:bg-white dark:text-ink dark:hover:bg-copper dark:hover:text-white"
               >
-                Start a conversation
+                Get your fixed-price quote
                 <ArrowRight size={17} />
               </Link>
             </div>

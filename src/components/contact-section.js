@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
-import { Mail, MessageCircle, Send } from "lucide-react";
+import { ArrowUpRight, Mail, MessageCircle, Send } from "lucide-react";
 import Reveal from "./reveal";
 
 export function ContactSection({ profile }) {
@@ -20,11 +21,11 @@ export function ContactSection({ profile }) {
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
           <p className="text-sm font-black uppercase tracking-wide text-copper">Contact</p>
-          <h2 className="mt-3 text-balance text-3xl font-black sm:text-4xl">Let&rsquo;s build something useful</h2>
+          <h2 className="mt-3 text-balance text-3xl font-black sm:text-4xl">Tell me what you want to build</h2>
           <p className="mt-4 leading-7 text-ink/68">
-            Send a message for cloud projects, web development, collaboration, or technical content work.
+            Share your project type, timeline and budget. I&apos;ll reply with a fixed price and next steps.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
             <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 text-sm font-black text-moss">
               <Mail size={18} />
               {profile.email}
@@ -34,12 +35,19 @@ export function ContactSection({ profile }) {
                 href={profile.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="focus-ring inline-flex items-center gap-2 rounded-md bg-[#25D366] px-4 py-2 text-sm font-bold text-white transition hover:brightness-110"
+                className="focus-ring inline-flex items-center gap-2 rounded-md text-sm font-black text-moss hover:text-copper"
               >
                 <MessageCircle size={18} />
                 WhatsApp
               </a>
             ) : null}
+            <Link
+              href="/pricing"
+              className="focus-ring inline-flex items-center gap-1 rounded-md text-sm font-black text-ink/60 hover:text-copper"
+            >
+              See packages
+              <ArrowUpRight size={15} />
+            </Link>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             {profile.socialLinks.map((link) => (
@@ -58,7 +66,7 @@ export function ContactSection({ profile }) {
         <Reveal delay={120}>
           <form onSubmit={handleSubmit} className="rounded-md border border-ink/10 bg-paper p-5 sm:p-6">
             <p className="text-sm font-bold text-ink/62">
-              Fill this in and it opens WhatsApp with your message ready to send.
+              Fastest reply on WhatsApp. This opens your message ready to send.
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               <label className="grid gap-2 text-sm font-bold">
@@ -93,7 +101,7 @@ export function ContactSection({ profile }) {
             </label>
             <button className="focus-ring mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#25D366] px-4 py-2 text-sm font-semibold text-white transition hover:brightness-110">
               <Send size={17} />
-              Send via WhatsApp
+              Send project brief on WhatsApp
             </button>
           </form>
         </Reveal>

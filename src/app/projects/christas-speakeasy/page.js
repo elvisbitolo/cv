@@ -87,6 +87,13 @@ export default function ChristasSpeakeasyCaseStudy() {
                 View source repository <ArrowUpRight size={17} />
               </a>
             </div>
+            <Link
+              href="/#contact"
+              className="focus-ring mt-4 inline-flex items-center gap-2 rounded-md text-sm font-bold text-copper hover:text-moss"
+            >
+              Similar project? Get a fixed-price quote
+              <ArrowUpRight size={16} />
+            </Link>
             <p className="mt-4 max-w-2xl text-xs leading-5 text-ink/55">
               The public website opens the membership information and checkout
               journey. Access to member-only application areas may require an
@@ -192,7 +199,7 @@ export default function ChristasSpeakeasyCaseStudy() {
         <Reveal>
         <p className="text-xs font-black uppercase tracking-[0.2em] text-copper">Next step</p>
         <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-black sm:text-4xl">
-          Have a product or business workflow to build?
+          Have a similar product or workflow to build?
         </h2>
         <p className="mx-auto mt-4 max-w-xl leading-7 text-ink/68">
           I work on websites and full-stack applications that help teams
@@ -202,7 +209,7 @@ export default function ChristasSpeakeasyCaseStudy() {
           href="/#contact"
           className="focus-ring mt-7 inline-flex min-h-11 items-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-moss dark:bg-white dark:text-ink"
         >
-          Discuss a project <ArrowUpRight size={17} />
+          Get a fixed-price quote <ArrowUpRight size={17} />
         </Link>
         </Reveal>
       </section>
