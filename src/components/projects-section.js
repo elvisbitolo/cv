@@ -28,7 +28,7 @@ export function ProjectsSection({ projects }) {
                       <span className="rounded-full border border-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/75">Live platform</span>
                     </div>
                     <div className="relative py-8">
-                      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e5a184]">Christa's</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e5a184]">Christa&apos;s</p>
                       <p className="mt-1 font-serif text-4xl leading-none sm:text-5xl">Speakeasy</p>
                       <p className="mt-4 max-w-xs text-sm leading-6 text-white/65">A private digital community with memberships, social features and live video experiences.</p>
                     </div>

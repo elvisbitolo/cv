@@ -60,7 +60,7 @@ export default function ChristasSpeakeasyCaseStudy() {
               Featured case study · Full-stack product
             </p>
             <h1 className="mt-4 text-4xl font-black leading-tight sm:text-6xl">
-              Christa's Speakeasy
+              Christa&apos;s Speakeasy
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-ink/70 sm:text-xl">
               A members-only online community for Secret Yarnery, bringing
