@@ -36,23 +36,6 @@ export function ProjectsSection({ projects }) {
                           className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
                         />
                       ) : null}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#211923] via-[#211923]/35 to-[#211923]/10" aria-hidden="true" />
-                      <div className="absolute inset-0 flex flex-col justify-between p-7 text-white sm:p-9">
-                        <div className="relative flex items-center justify-between gap-3">
-                          <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#e5a184]">Featured product</span>
-                          <span className="rounded-full border border-white/20 bg-black/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/75 backdrop-blur">Live platform</span>
-                        </div>
-                        <div className="relative py-8">
-                          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e5a184]">Christa&apos;s</p>
-                          <p className="mt-1 font-serif text-4xl leading-none sm:text-5xl">Speakeasy</p>
-                          <p className="mt-4 max-w-xs text-sm leading-6 text-white/75">A private digital community with memberships, social features and live video experiences.</p>
-                        </div>
-                        <div className="relative flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-white/75">
-                          <span className="border border-white/20 bg-black/20 px-2 py-1 backdrop-blur">Community</span>
-                          <span className="border border-white/20 bg-black/20 px-2 py-1 backdrop-blur">Membership</span>
-                          <span className="border border-white/20 bg-black/20 px-2 py-1 backdrop-blur">Live video</span>
-                        </div>
-                      </div>
                     </div>
 
                     <ProjectDetails project={project} featured />
